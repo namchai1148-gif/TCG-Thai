@@ -1420,9 +1420,21 @@
 			applyThemeSettings(); 
 			renderFrontEndGrids();
 			navigateTo('welcomePage');
-		};
-const SUPABASE_URL = "https://jenkfajskgmotrvyycja.supabase.co/rest/v1/"; 
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImplbmtmYWpza2dtb3Rydnl5Y2phIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3NTgwMjksImV4cCI6MjA5NzMzNDAyOX0.EIDoZHzGng6IoRV9XjlGqrrbH4PSXa2eI77gxwZ3GKk";
+		};// แทนที่ URL ด้วย Web App URL ที่ได้จาก Google Apps Script
+const GOOGLE_SHEET_API = "https://script.google.com/macros/s/AKfycbyV8N-urJkqE04kUiekmJo0DZLIaqqoh9on9NFob_BxSqQ0n4syn0bL9EpNGgOP7jnt1w/exec";
+
+async function fetchShopsFromSheet() {
+  const response = await fetch(GOOGLE_SHEET_API);
+  const data = await response.json();
+  
+  // นำข้อมูลไปแสดงผลเหมือนเดิม
+  productsData = {};
+  data.forEach(item => {
+    productsData[item.member_id] = item;
+  });
+  renderFrontEndGrids();
+}
+
 
 	</script>
 </body>
