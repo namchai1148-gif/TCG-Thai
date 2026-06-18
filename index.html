@@ -7,10 +7,10 @@
 	<title>TCG THAILAND - Trade · Collect · Connect</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,800&family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&family=Kanit:wght@300;400;600;700&family=Montserrat:ital,wght@0,400;0,700;0,900;1,800&family=Prompt:wght@300;400;600;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
 
 	<style>
-		/* CSS Variables */
+		/* กลับมาใช้สีธีมหลักคงที่ตามมาตรฐานของเว็บไซต์ */
 		:root {
 			--primary-navy: #0e1d35;
 			--bg-dark: #070f1e;
@@ -20,7 +20,11 @@
 			--text-dark: #1c1c1c;
 			--text-light: #ffffff;
 			--card-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-			--theme-transition: background-color 0.6s ease, border-color 0.6s ease, color 0.6s ease;
+			--theme-transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+			
+			/* คงระบบสลับฟอนต์และขนาดตัวอักษรไว้ */
+			--body-font: 'Prompt', 'Montserrat', sans-serif;
+			--base-font-size: 16px;
 		}
 
 		* {
@@ -30,11 +34,13 @@
 		}
 
 		body {
-			font-family: 'Prompt', 'Montserrat', sans-serif;
+			font-family: var(--body-font);
+			font-size: var(--base-font-size);
 			background-color: var(--bg-light);
 			color: var(--text-dark);
 			overflow-x: hidden;
 			line-height: 1.6;
+			transition: var(--theme-transition);
 		}
 
 		/* Navigation Bar */
@@ -45,7 +51,6 @@
 			top: 0;
 			z-index: 1000;
 			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-			transition: var(--theme-transition);
 		}
 
 		.nav-container {
@@ -64,10 +69,10 @@
 		}
 
 		.logo-text {
-			font-family: 'Montserrat', sans-serif;
+			font-family: var(--body-font);
 			font-weight: 900;
 			font-style: italic;
-			font-size: 24px;
+			font-size: 1.5rem;
 			color: var(--text-light);
 			cursor: pointer;
 		}
@@ -84,8 +89,8 @@
 			color: var(--text-light);
 			text-decoration: none;
 			font-weight: 600;
-			font-size: 15px;
-			transition: var(--theme-transition);
+			font-size: 0.95rem;
+			transition: all 0.3s ease;
 		}
 
 		nav ul li a:hover { color: var(--accent-gold); }
@@ -117,7 +122,6 @@
 			width: 100%;
 			flex: 0 0 100%;
 			height: auto;
-			overflow: hidden;
 		}
 
 		.hero-img {
@@ -135,7 +139,7 @@
 			backdrop-filter: blur(4px);
 			border: 1px solid var(--accent-gold);
 			color: var(--text-light);
-			font-size: 18px;
+			font-size: 1.2rem;
 			width: 45px;
 			height: 45px;
 			display: flex;
@@ -144,7 +148,7 @@
 			cursor: pointer;
 			z-index: 10;
 			border-radius: 50%;
-			transition: var(--theme-transition);
+			transition: all 0.3s ease;
 		}
 
 		.slide-btn:hover {
@@ -186,7 +190,6 @@
 			background-color: var(--bg-dark);
 			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 			padding: 20px 0;
-			transition: var(--theme-transition);
 		}
 
 		.features-container {
@@ -203,7 +206,6 @@
 			align-items: center;
 			gap: 15px;
 			color: var(--text-light);
-			padding: 10px;
 		}
 
 		.feature-icon {
@@ -216,21 +218,12 @@
 			justify-content: center;
 			align-items: center;
 			color: var(--accent-gold);
-			font-size: 20px;
+			font-size: 1.3rem;
 			flex-shrink: 0;
-			transition: var(--theme-transition);
 		}
 
-		.feature-text h4 {
-			font-size: 16px;
-			font-weight: 700;
-			margin-bottom: 2px;
-		}
-
-		.feature-text p {
-			font-size: 13px;
-			color: #a0aec0;
-		}
+		.feature-text h4 { font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
+		.feature-text p { font-size: 0.8rem; color: #a0aec0; }
 
 		/* Search System */
 		.search-wrapper {
@@ -242,21 +235,16 @@
 			border: 1px solid rgba(0, 0, 0, 0.05);
 		}
 
-		.search-box {
-			display: flex;
-			gap: 12px;
-			max-width: 600px;
-		}
+		.search-box { display: flex; gap: 12px; max-width: 600px; }
 
 		.search-input {
 			flex-grow: 1;
 			padding: 12px 18px;
 			border: 2px solid var(--primary-navy);
 			border-radius: 8px;
-			font-family: 'Prompt', sans-serif;
-			font-size: 15px;
+			font-family: var(--body-font);
+			font-size: 0.95rem;
 			outline: none;
-			transition: var(--theme-transition);
 		}
 
 		.search-input:focus { border-color: var(--accent-gold); }
@@ -269,35 +257,16 @@
 			border-radius: 8px;
 			font-weight: 600;
 			cursor: pointer;
-			font-family: 'Prompt', sans-serif;
-			transition: var(--theme-transition);
-		}
-
-		.btn-search:hover {
-			background-color: var(--accent-gold);
-			color: #000;
-		}
-
-		.btn-reset {
-			background-color: #eaedf1;
-			color: #4a5568;
-			border: none;
-			padding: 0 20px;
-			border-radius: 8px;
-			font-weight: 600;
-			cursor: pointer;
-			font-family: 'Prompt', sans-serif;
+			font-family: var(--body-font);
 			transition: all 0.3s ease;
 		}
 
+		.btn-search:hover { background-color: var(--accent-gold); color: #000; }
+		.btn-reset { background-color: #eaedf1; color: #4a5568; border: none; padding: 0 20px; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: var(--body-font); }
 		.btn-reset:hover { background-color: #cbd5e0; }
 
 		/* Main Content & Product Grid */
-		.main-content {
-			max-width: 1200px;
-			margin: 60px auto;
-			padding: 0 20px;
-		}
+		.main-content { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
 
 		.section-header {
 			margin-bottom: 40px;
@@ -306,20 +275,10 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: flex-end;
-			transition: var(--theme-transition);
 		}
 
-		.section-header h2 {
-			font-size: 28px;
-			font-weight: 700;
-			color: var(--primary-navy);
-			transition: var(--theme-transition);
-		}
-
-		.section-header p {
-			color: #666;
-			font-size: 14px;
-		}
+		.section-header h2 { font-size: 1.75rem; font-weight: 700; color: var(--primary-navy); }
+		.section-header p { color: #666; font-size: 0.85rem; }
 
 		.product-grid {
 			display: grid;
@@ -328,6 +287,7 @@
 			margin-bottom: 40px;
 		}
 
+		/* การ์ดร้านค้า */
 		.product-card {
 			background: var(--text-light);
 			border-radius: 12px;
@@ -351,17 +311,19 @@
 			position: relative;
 		}
 
+		/* ป้าย VIP ดีไซน์ใหม่ */
 		.product-badge {
 			position: absolute;
 			top: 15px;
 			left: 15px;
-			background-color: var(--accent-red);
 			color: var(--text-light);
-			padding: 4px 10px;
-			border-radius: 4px;
-			font-size: 12px;
-			font-weight: 700;
+			padding: 5px 12px;
+			border-radius: 6px;
+			font-size: 0.8rem;
+			font-weight: 800;
 			z-index: 2;
+			letter-spacing: 0.5px;
+			box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 		}
 
 		.view-badge {
@@ -373,7 +335,7 @@
 			color: var(--text-light);
 			padding: 4px 10px;
 			border-radius: 4px;
-			font-size: 12px;
+			font-size: 0.75rem;
 			font-weight: 600;
 			display: flex;
 			align-items: center;
@@ -381,47 +343,11 @@
 			z-index: 2;
 		}
 
-		.product-info {
-			padding: 20px;
-			display: flex;
-			flex-direction: column;
-			flex-grow: 1;
-		}
-
-		.product-category {
-			font-size: 12px;
-			color: var(--accent-gold);
-			font-weight: 700;
-			text-transform: uppercase;
-			margin-bottom: 5px;
-			transition: var(--theme-transition);
-		}
-
-		.product-title {
-			font-size: 16px;
-			font-weight: 600;
-			color: var(--text-dark);
-			margin-bottom: 15px;
-			height: 48px;
-			display: -webkit-box;
-			-webkit-line-clamp: 2;
-			-webkit-box-orient: vertical;
-			overflow: hidden;
-		}
-
-		.product-meta {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			margin-top: auto;
-		}
-
-		.product-price {
-			font-size: 12px;
-			font-weight: 600;
-			word-break: break-all;
-			color: #718096 !important;
-		}
+		.product-info { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+		.product-category { font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; margin-bottom: 5px; }
+		.product-title { font-size: 1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 15px; height: 48px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+		.product-meta { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+		.product-price { font-size: 0.75rem; font-weight: 600; word-break: break-all; color: #718096 !important; }
 
 		.btn-buy {
 			background-color: var(--primary-navy);
@@ -432,48 +358,31 @@
 			font-weight: 600;
 			cursor: pointer;
 			flex-shrink: 0;
-			transition: var(--theme-transition);
+			font-family: var(--body-font);
+			transition: all 0.3s ease;
 		}
-
-		.btn-buy:hover {
-			background-color: var(--accent-gold);
-			color: #000;
-		}
+		.btn-buy:hover { opacity: 0.9; transform: scale(1.03); }
 
 		/* Center View All Button */
-		.center-btn-container {
-			text-align: center;
-			margin: 20px 0 60px 0;
-		}
-
+		.center-btn-container { text-align: center; margin: 20px 0 60px 0; }
 		.btn-view-all {
 			background-color: var(--primary-navy);
 			color: var(--text-light);
 			border: 2px solid var(--accent-gold);
 			padding: 14px 40px;
-			font-size: 16px;
+			font-size: 1rem;
 			font-weight: 700;
 			border-radius: 30px;
 			cursor: pointer;
 			box-shadow: var(--card-shadow);
 			transition: all 0.3s ease;
-			font-family: 'Prompt', sans-serif;
+			font-family: var(--body-font);
 		}
-
-		.btn-view-all:hover {
-			background-color: var(--accent-gold);
-			color: #000;
-			transform: scale(1.05);
-		}
+		.btn-view-all:hover { background-color: var(--accent-gold); color: #000; transform: scale(1.05); }
 
 		/* Page Control sections */
-		.page-section {
-			display: none;
-		}
-
-		.page-section.active {
-			display: block;
-		}
+		.page-section { display: none; }
+		.page-section.active { display: block; }
 
 		/* Modal Popup Style */
 		.modal-overlay {
@@ -494,10 +403,7 @@
 			padding: 20px;
 		}
 
-		.modal-overlay.open {
-			opacity: 1;
-			pointer-events: auto;
-		}
+		.modal-overlay.open { opacity: 1; pointer-events: auto; }
 
 		.modal-content-box {
 			background: var(--text-light);
@@ -515,9 +421,7 @@
 			max-height: 90vh;
 		}
 
-		.modal-overlay.open .modal-content-box {
-			transform: translateY(0);
-		}
+		.modal-overlay.open .modal-content-box { transform: translateY(0); }
 
 		.modal-header {
 			background: var(--primary-navy);
@@ -529,29 +433,11 @@
 			border-bottom: 3px solid var(--accent-gold);
 		}
 
-		.modal-header h3 {
-			font-size: 20px;
-			font-weight: 700;
-		}
+		.modal-header h3 { font-size: 1.25rem; font-weight: 700; }
+		.btn-close-modal { background: none; border: none; color: white; font-size: 1.6rem; cursor: pointer; line-height: 1; }
+		.btn-close-modal:hover { color: var(--accent-gold); }
 
-		.btn-close-modal {
-			background: none;
-			border: none;
-			color: white;
-			font-size: 26px;
-			cursor: pointer;
-			line-height: 1;
-			transition: color 0.3s ease;
-		}
-
-		.btn-close-modal:hover {
-			color: var(--accent-gold);
-		}
-
-		.modal-body {
-			padding: 20px;
-			overflow-y: auto;
-		}
+		.modal-body { padding: 20px; overflow-y: auto; }
 
 		.modal-product-details {
 			display: flex;
@@ -563,43 +449,13 @@
 			border: 1px solid #e2e8f0;
 		}
 
-		.modal-img-wrapper {
-			width: 120px;
-			height: 150px;
-			background: #cbd5e0;
-			border-radius: 8px;
-			overflow: hidden;
-			flex-shrink: 0;
-		}
-
-		.modal-img-wrapper img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
-
-		.modal-info-text {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-		}
-
-		.modal-info-text .m-name {
-			font-size: 18px;
-			font-weight: 700;
-			color: var(--primary-navy);
-			margin-bottom: 5px;
-		}
-
-		.modal-info-text .m-id {
-			font-size: 14px;
-			color: #718096;
-			font-weight: 600;
-			margin-bottom: 10px;
-		}
-
+		.modal-img-wrapper { width: 120px; height: 150px; background: #cbd5e0; border-radius: 8px; overflow: hidden; flex-shrink: 0; }
+		.modal-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+		.modal-info-text { display: flex; flex-direction: column; justify-content: center; }
+		.modal-info-text .m-name { font-size: 1.15rem; font-weight: 700; color: var(--primary-navy); margin-bottom: 5px; }
+		.modal-info-text .m-id { font-size: 0.85rem; color: #718096; font-weight: 600; margin-bottom: 10px; }
 		.modal-info-text .m-bank {
-			font-size: 14px;
+			font-size: 0.85rem;
 			color: var(--accent-red);
 			font-weight: 700;
 			background: rgba(211, 17, 33, 0.05);
@@ -609,7 +465,7 @@
 		}
 
 		.modal-view-counter {
-			font-size: 14px;
+			font-size: 0.85rem;
 			font-weight: bold;
 			color: #2d3748;
 			margin-bottom: 15px;
@@ -621,87 +477,18 @@
 			gap: 6px;
 		}
 
-		/* โซนคอมเมนต์ด้านในป๊อปอัป */
-		.modal-comment-section {
-			border-top: 1px solid #e2e8f0;
-			padding-top: 15px;
-		}
-
-		.modal-comment-title {
-			font-weight: 700;
-			font-size: 15px;
-			color: var(--primary-navy);
-			margin-bottom: 10px;
-		}
-
-		.modal-comment-list {
-			max-height: 180px;
-			overflow-y: auto;
-			margin-bottom: 15px;
-			background: #f7fafc;
-			padding: 10px;
-			border-radius: 8px;
-		}
-
-		.modal-comment-item {
-			background: white;
-			padding: 8px 12px;
-			border-radius: 6px;
-			margin-bottom: 8px;
-			border-left: 4px solid var(--accent-gold);
-			box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-			font-size: 13px;
-		}
-
-		.modal-comment-form {
-			display: flex;
-			flex-direction: column;
-			gap: 8px;
-		}
-
-		.modal-input-group {
-			display: flex;
-			gap: 8px;
-		}
-
-		.modal-input-name {
-			width: 30%;
-			padding: 10px;
-			border: 1px solid #cbd5e0;
-			border-radius: 6px;
-			font-family: 'Prompt', sans-serif;
-			outline: none;
-		}
-
-		.modal-input-text {
-			width: 70%;
-			padding: 10px;
-			border: 1px solid #cbd5e0;
-			border-radius: 6px;
-			font-family: 'Prompt', sans-serif;
-			outline: none;
-		}
-
-		.modal-input-name:focus, .modal-input-text:focus {
-			border-color: var(--accent-gold);
-		}
-
-		.btn-submit-comment {
-			background: var(--primary-navy);
-			color: white;
-			border: none;
-			padding: 10px;
-			border-radius: 6px;
-			font-weight: 600;
-			cursor: pointer;
-			font-family: 'Prompt', sans-serif;
-			transition: all 0.3s ease;
-		}
-
-		.btn-submit-comment:hover {
-			background: var(--accent-gold);
-			color: #000;
-		}
+		/* โซนคอมเมนต์ */
+		.modal-comment-section { border-top: 1px solid #e2e8f0; padding-top: 15px; }
+		.modal-comment-title { font-weight: 700; font-size: 0.95rem; color: var(--primary-navy); margin-bottom: 10px; }
+		.modal-comment-list { max-height: 180px; overflow-y: auto; margin-bottom: 15px; background: #f7fafc; padding: 10px; border-radius: 8px; }
+		.modal-comment-item { background: white; padding: 8px 12px; border-radius: 6px; margin-bottom: 8px; border-left: 4px solid var(--accent-gold); box-shadow: 0 1px 3px rgba(0,0,0,0.05); font-size: 0.8rem; }
+		.modal-comment-form { display: flex; flex-direction: column; gap: 8px; }
+		.modal-input-group { display: flex; gap: 8px; }
+		.modal-input-name { width: 30%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; font-family: var(--body-font); outline: none; }
+		.modal-input-text { width: 70%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; font-family: var(--body-font); outline: none; }
+		.modal-input-name:focus, .modal-input-text:focus { border-color: var(--accent-gold); }
+		.btn-submit-comment { background: var(--primary-navy); color: white; border: none; padding: 10px; border-radius: 6px; font-weight: 600; cursor: pointer; font-family: var(--body-font); transition: all 0.3s ease; }
+		.btn-submit-comment:hover { background: var(--accent-gold); color: #000; }
 
 		/* Community & QR Section */
 		.community-box {
@@ -715,22 +502,14 @@
 			align-items: center;
 			gap: 40px;
 			border-bottom: 4px solid var(--accent-gold);
-			transition: var(--theme-transition);
 		}
 
-		.comm-info h3 {
-			font-size: 32px;
-			font-weight: 700;
-			margin-bottom: 15px;
-			font-family: 'Montserrat', 'Prompt', sans-serif;
-		}
-
+		.comm-info h3 { font-size: 2rem; font-weight: 700; margin-bottom: 15px; }
 		.comm-info h3 span { color: var(--accent-gold); }
-		.comm-info p { color: #cbd5e0; font-size: 16px; margin-bottom: 25px; }
-
+		.comm-info p { color: #cbd5e0; font-size: 1rem; margin-bottom: 25px; }
 		.comm-stats { display: flex; gap: 30px; }
-		.stat-item h5 { font-size: 24px; color: var(--accent-gold); font-weight: 700; }
-		.stat-item p { font-size: 13px; color: #a0aec0; margin: 0; }
+		.stat-item h5 { font-size: 1.5rem; color: var(--accent-gold); font-weight: 700; }
+		.stat-item p { font-size: 0.8rem; color: #a0aec0; margin: 0; }
 
 		.comm-qr {
 			display: flex;
@@ -743,112 +522,31 @@
 			border: 1px solid rgba(255, 255, 255, 0.1);
 		}
 
-		.qr-placeholder {
-			width: 140px;
-			height: 140px;
-			background: white;
-			padding: 10px;
-			border-radius: 8px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			color: #000;
-			font-weight: bold;
-			font-size: 12px;
-			text-align: center;
-		}
+		.qr-placeholder { width: 140px; height: 140px; background: white; padding: 10px; border-radius: 8px; display: flex; justify-content: center; align-items: center; color: #000; font-weight: bold; font-size: 0.75rem; text-align: center; }
 
 		/* Footer */
-		footer {
-			background-color: var(--bg-dark);
-			color: #a0aec0;
-			padding: 40px 20px;
-			margin-top: 60px;
-			border-top: 1px solid rgba(255, 255, 255, 0.05);
-			transition: var(--theme-transition);
-		}
-
-		.footer-container {
-			max-width: 1200px;
-			margin: 0 auto;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			flex-wrap: wrap;
-			gap: 20px;
-		}
-
+		footer { background-color: var(--bg-dark); color: #a0aec0; padding: 40px 20px; margin-top: 60px; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+		.footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
 		.footer-brands { display: flex; gap: 20px; align-items: center; font-weight: 700; color: var(--text-light); }
-		.brand-tag { padding: 4px 12px; background: rgba(255, 255, 255, 0.1); border-radius: 4px; font-size: 12px; letter-spacing: 1px; }
+		.brand-tag { padding: 4px 12px; background: rgba(255, 255, 255, 0.1); border-radius: 4px; font-size: 0.75rem; letter-spacing: 1px; }
 
-		/* สไตล์ของปุ่มแอดมินลอย และหน้าต่างแอดมิน */
+		/* ปุ่มแอดมินลอย */
 		.btn-admin { 
-			position: fixed; 
-			bottom: 30px; 
-			right: 30px; 
-			z-index: 1999; 
-			width: 60px; 
-			height: 60px; 
-			border-radius: 50%; 
-			border: 2px solid var(--accent-gold); 
-			background: var(--primary-navy); 
-			color: var(--accent-gold); 
-			cursor: pointer; 
-			font-size: 26px; 
-			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			transition: all 0.3s ease;
+			position: fixed; bottom: 30px; right: 30px; z-index: 1999; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent-gold); background: var(--primary-navy); color: var(--accent-gold); cursor: pointer; font-size: 1.6rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); display: flex; justify-content: center; align-items: center; transition: all 0.3s ease;
 		}
-		.btn-admin:hover {
-			transform: scale(1.1) rotate(45deg);
-			background: var(--accent-gold);
-			color: #000;
-		}
-		.admin-list-item {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 12px;
-			background: #f8fafc;
-			border-radius: 8px;
-			margin-bottom: 10px;
-			border: 1px solid #e2e8f0;
-		}
-		.admin-btn-edit { background: #3182ce; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-family: 'Prompt', sans-serif; font-size: 13px; margin-right: 5px; font-weight: 600;}
-		.admin-btn-delete { background: var(--accent-red); color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-family: 'Prompt', sans-serif; font-size: 13px; font-weight: 600;}
+		.btn-admin:hover { transform: scale(1.1) rotate(45deg); background: var(--accent-gold); color: #000; }
 		
-		/* จัดการฟอร์ม Input ของแอดมิน */
-		.admin-form-box {
-			background: #e2e8f0; 
-			padding: 15px; 
-			border-radius: 12px; 
-			margin-bottom: 20px; 
-			border: 1px solid #cbd5e0;
-		}
-		.admin-edit-form {
-			background: #edf2f7;
-			padding: 15px;
-			border-radius: 12px;
-			margin-top: 15px;
-			display: none;
-			border: 1px solid #cbd5e0;
-		}
-		.admin-input {
-			width: 100%;
-			padding: 10px;
-			margin-bottom: 10px;
-			border: 1px solid #cbd5e0;
-			border-radius: 6px;
-			font-family: 'Prompt', sans-serif;
-			outline: none;
-		}
+		.admin-list-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #f8fafc; border-radius: 8px; margin-bottom: 10px; border: 1px solid #e2e8f0; }
+		.admin-btn-edit { background: #3182ce; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-family: var(--body-font); font-size: 0.8rem; margin-right: 5px; font-weight: 600;}
+		.admin-btn-delete { background: var(--accent-red); color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-family: var(--body-font); font-size: 0.8rem; font-weight: 600;}
+		
+		.admin-form-box { background: #e2e8f0; padding: 15px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #cbd5e0; }
+		.admin-edit-form { background: #edf2f7; padding: 15px; border-radius: 12px; margin-top: 15px; display: none; border: 1px solid #cbd5e0; }
+		.admin-input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #cbd5e0; border-radius: 6px; font-family: var(--body-font); outline: none; font-size: 0.9rem; }
 		.admin-input:focus { border-color: var(--accent-gold); }
 
 		@media (max-width: 768px) {
 			nav ul { display: none; }
-			.hero-slide { height: auto; }
 			.community-box { grid-template-columns: 1fr; padding: 30px 20px; text-align: center; }
 			.comm-stats { justify-content: center; }
 			.footer-container { flex-direction: column; text-align: center; }
@@ -856,11 +554,7 @@
 			.modal-input-group { flex-direction: column; }
 			.modal-input-name, .modal-input-text { width: 100%; }
 		}
-
-		@media (max-width: 576px) {
-			.search-box { flex-direction: column; }
-			.btn-search, .btn-reset { padding: 12px; }
-		}
+		@media (max-width: 576px) { .search-box { flex-direction: column; } .btn-search, .btn-reset { padding: 12px; } }
 	</style>
 </head>
 
@@ -883,6 +577,7 @@
 		</div>
 	</header>
 
+	<!-- 🏠 [หน้าแรก - HOME PAGE] -->
 	<div id="homePage" class="page-section active">
 		<section class="hero-banner-section">
 			<div class="hero-container">
@@ -890,9 +585,9 @@
 				<button class="slide-btn slide-next" onclick="moveSlide(1)">❯</button>
 
 				<div class="slider-wrapper" id="sliderWrapper">
-					<div class="hero-slide"><img src="https://cdn.discordapp.com/attachments/1032543052369244226/1517041103579123774/att.qlrtltFTXvdnLu--1TkDBRImXaEwpIzv8cM2iBT_CR8.jpg?ex=6a34d620&is=6a3384a0&hm=957f54f50f13fa5ad3d48fdad33cbd7fa0098d2151d1dc4e0f65cfd6fd35f60a&" class="hero-img"></div>
-					<div class="hero-slide"><img src="https://cdn.discordapp.com/attachments/1032543542482051092/1517164536116019250/att.teUTN4aIESWhfrk8eFCo-xDDlx1JcIFeaZywQMNrJhI.jpg?ex=6a354914&is=6a33f794&hm=19469d7a6b5922fcabe2340eef795443b761f3d6a1b03d9cab776c3292698d99&" class="hero-img"></div>
-					<div class="hero-slide"><img src="https://cdn.discordapp.com/attachments/1032543542482051092/1517164527580352743/att.Xbdlx9P49yxtT2s6GSyJBsM9fFAskxjn4gSvfYFbZzI.jpg?ex=6a354912&is=6a33f792&hm=7e6c0e3197a343f64bd9a714c82d00615d4cc57816c7cdf7febf7a6eb7cae402&" class="hero-img"></div>
+					<div class="hero-slide"><img id="slide-img-1" src="" class="hero-img"></div>
+					<div class="hero-slide"><img id="slide-img-2" src="" class="hero-img"></div>
+					<div class="hero-slide"><img id="slide-img-3" src="" class="hero-img"></div>
 				</div>
 
 				<div class="slider-dots">
@@ -936,6 +631,7 @@
 		</main>
 	</div>
 
+	<!-- 📦 [หน้าคลังสินค้าทั้งหมด - ALL PRODUCTS PAGE] -->
 	<div id="allProductsPage" class="page-section">
 		<main class="main-content" style="margin-top:30px;">
 			<div class="section-header">
@@ -950,6 +646,7 @@
 		</main>
 	</div>
 
+	<!-- 🛑 โครงสร้างหน้าต่างป๊อปอัปรายละเอียด (Dynamic Modal Overlay) -->
 	<div id="productModal" class="modal-overlay" onclick="closeProductModal(event)">
 		<div class="modal-content-box" onclick="event.stopPropagation()">
 			<div class="modal-header">
@@ -989,14 +686,48 @@
 		</div>
 	</div>
 
+	<!-- ⚙️ หน้าต่างควบคุมระบบจัดการแอดมิน (Admin Modal Overlay) -->
 	<div id="adminModal" class="modal-overlay" onclick="closeAdminModal(event)">
-		<div class="modal-content-box" style="max-width: 550px;" onclick="event.stopPropagation()">
+		<div class="modal-content-box" style="max-width: 580px;" onclick="event.stopPropagation()">
 			<div class="modal-header" style="background: var(--bg-dark);">
-				<h3>⚙️ ระบบจัดการร้านค้าแอดมิน (สิทธิ์ผ่านแล้ว)</h3>
+				<h3>⚙️ ระบบควบคุมและปรับแต่งดีไซน์แอดมิน</h3>
 				<button class="btn-close-modal" onclick="closeAdminModal(null)">×</button>
 			</div>
 			<div class="modal-body">
 				
+				<!-- 🎨 โซนปรับแต่งฟอนต์ และรูปปกสไลด์ผืนผ้าใบหลักเว็บ -->
+				<div class="admin-form-box" style="background: #f0f4f8; border: 2px dashed var(--accent-gold);">
+					<h4 style="margin-bottom: 12px; color: var(--primary-navy); border-bottom: 2px solid var(--accent-gold); padding-bottom: 5px;">🎨 ปรับแต่งฟอนต์ และรูปปกสไลด์</h4>
+
+					<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 10px; margin-bottom: 15px;">
+						<div>
+							<label style="font-size: 12px; font-weight: bold; color: #4a5568;">ฟอนต์ทั้งเว็บ (Font Family):</label>
+							<select id="adminFontFamily" class="admin-input" style="margin-bottom:0; padding:8px;">
+								<option value="'Prompt', 'Montserrat', sans-serif">Prompt (กลมมน ทันสมัยสไตล์ไทย)</option>
+								<option value="'Kanit', sans-serif">Kanit (ไม่มีหัว สปอร์ต โมเดิร์น)</option>
+								<option value="'Sarabun', sans-serif">Sarabun (เรียบร้อย เป็นทางการ)</option>
+								<option value="'Chakra Petch', sans-serif">Chakra Petch (เหลี่ยมไซไฟ สไตล์เกมเมอร์)</option>
+							</select>
+						</div>
+						<div>
+							<label style="font-size: 12px; font-weight: bold; color: #4a5568;">ขนาดอักษรหลัก:</label>
+							<input type="number" id="adminFontSize" class="admin-input" style="margin-bottom:0;" min="14" max="22">
+						</div>
+					</div>
+
+					<div style="margin-bottom: 12px;">
+						<label style="font-size: 11px; font-weight: bold; color: #4a5568; display:block; margin-bottom:2px;">URL รูปปกสไลด์ผืนที่ 1:</label>
+						<input type="text" id="adminSlideImg1" class="admin-input" style="margin-bottom:6px; padding:6px;">
+						<label style="font-size: 11px; font-weight: bold; color: #4a5568; display:block; margin-bottom:2px;">URL รูปปกสไลด์ผืนที่ 2:</label>
+						<input type="text" id="adminSlideImg2" class="admin-input" style="margin-bottom:6px; padding:6px;">
+						<label style="font-size: 11px; font-weight: bold; color: #4a5568; display:block; margin-bottom:2px;">URL รูปปกสไลด์ผืนที่ 3:</label>
+						<input type="text" id="adminSlideImg3" class="admin-input" style="margin-bottom:10px; padding:6px;">
+					</div>
+
+					<button class="btn-submit-comment" style="width: 100%; background: #007bff; font-weight:bold;" onclick="saveGlobalThemeSettings()">💾 บันทึกการตั้งค่าหน้าเว็บ</button>
+				</div>
+
+				<!-- ฟอร์มเพิ่มร้านค้าใหม่ (รองรับ VIP1-4 และเพิ่มสีประจำร้านได้อิสระ) -->
 				<div class="admin-form-box">
 					<h4 style="margin-bottom: 12px; color: var(--primary-navy); border-bottom: 2px solid var(--accent-gold); padding-bottom: 5px;">➕ เพิ่มร้านค้า / สมาชิกใหม่</h4>
 					<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
@@ -1005,31 +736,65 @@
 							<input type="text" id="adminAddId" class="admin-input" style="margin-bottom:5px;" placeholder="OP-0010">
 						</div>
 						<div>
-							<label style="font-size: 12px; font-weight: 600; color:#4a5568;">ชื่อสมาชิก / ร้านค้า (Category):</label>
+							<label style="font-size: 12px; font-weight: 600; color:#4a5568;">ชื่อสมาชิก / ร้านค้า:</label>
 							<input type="text" id="adminAddCategory" class="admin-input" style="margin-bottom:5px;" placeholder="ชื่อร้านหรือชื่อจริง">
 						</div>
 					</div>
+					
+					<!-- อัปเดตเมนูสลับป้าย VIP1-4 และเพิ่มกล่องเลือกสีส่วนบุคคล -->
+					<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top:5px;">
+						<div>
+							<label style="font-size: 12px; font-weight: 600; color:#4a5568;">ป้ายสถานะสมาชิก:</label>
+							<select id="adminAddVip" class="admin-input" style="margin-bottom:5px;">
+								<option value="none">ไม่มีป้าย (สมาชิกทั่วไป)</option>
+								<option value="VIP1">VIP1</option>
+								<option value="VIP2">VIP2</option>
+								<option value="VIP3">VIP3</option>
+								<option value="VIP4">VIP4</option>
+							</select>
+						</div>
+						<div>
+							<label style="font-size: 12px; font-weight: 600; color:#4a5568;">สีธีมประจำการ์ดร้านนี้:</label>
+							<input type="color" id="adminAddColor" style="width:100%; height:38px; border:1px solid #cbd5e0; border-radius:6px; cursor:pointer;" value="#d31121">
+						</div>
+					</div>
+
 					<label style="font-size: 12px; font-weight: 600; display:block; margin-top:5px; color:#4a5568;">ข้อมูลบัญชีธนาคาร (BANK):</label>
 					<input type="text" id="adminAddBank" class="admin-input" style="margin-bottom:5px;" placeholder="เช่น 125-1-69451-2 K-BANK">
-					
 					<label style="font-size: 12px; font-weight: 600; display:block; margin-top:5px; color:#4a5568;">ลิงก์ URL รูปภาพการ์ดประจำร้าน:</label>
 					<input type="text" id="adminAddImg" class="admin-input" style="margin-bottom:10px;" placeholder="https://example.com/image.jpg">
 					
-					<button class="btn-submit-comment" style="width: 100%; background: #28a745; text-shadow: 0 1px 2px rgba(0,0,0,0.2);" onclick="addNewShop()">✨ บันทึกและเพิ่มร้านค้าใหม่</button>
+					<button class="btn-submit-comment" style="width: 100%; background: #28a745;" onclick="addNewShop()">✨ บันทึกและเพิ่มร้านค้าใหม่</button>
 				</div>
 
 				<h4 style="margin-bottom: 8px; color: var(--primary-navy);">📋 รายการร้านค้าทั้งหมดในระบบ</h4>
-				<div id="adminShopList" style="max-height: 200px; overflow-y: auto; margin-bottom: 15px;">
-					</div>
+				<div id="adminShopList" style="max-height: 150px; overflow-y: auto; margin-bottom: 15px;"></div>
 				
+				<!-- ฟอร์มแก้ไขข้อมูลร้านค้า (รองรับ VIP1-4 และแก้ไขสีได้) -->
 				<div id="adminEditForm" class="admin-edit-form">
 					<h4 style="margin-bottom: 12px; color: var(--primary-navy);">✏️ แก้ไขข้อมูลสมาชิก: <span id="adminEditingId" style="color:var(--accent-red)"></span></h4>
-					<label style="font-size: 13px; font-weight: 600; display:block; margin-bottom:4px;">ชื่อสมาชิก / ร้านค้า (Category):</label>
-					<input type="text" id="adminInputCategory" class="admin-input">
 					
+					<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+						<div>
+							<label style="font-size: 13px; font-weight: 600; display:block; margin-bottom:4px;">แก้ไขป้ายสถานะ:</label>
+							<select id="adminInputVip" class="admin-input">
+								<option value="none">ไม่มีป้าย (สมาชิกทั่วไป)</option>
+								<option value="VIP1">VIP1</option>
+								<option value="VIP2">VIP2</option>
+								<option value="VIP3">VIP3</option>
+								<option value="VIP4">VIP4</option>
+							</select>
+						</div>
+						<div>
+							<label style="font-size: 13px; font-weight: 600; display:block; margin-bottom:4px;">แก้ไขสีประจำการ์ด:</label>
+							<input type="color" id="adminInputColor" style="width:100%; height:38px; border:1px solid #cbd5e0; border-radius:6px; cursor:pointer;">
+						</div>
+					</div>
+
+					<label style="font-size: 13px; font-weight: 600; display:block; margin-bottom:4px; margin-top:5px;">ชื่อสมาชิก / ร้านค้า:</label>
+					<input type="text" id="adminInputCategory" class="admin-input">
 					<label style="font-size: 13px; font-weight: 600; display:block; margin-bottom:4px;">ข้อมูลบัญชีธนาคาร (BANK):</label>
 					<input type="text" id="adminInputBank" class="admin-input">
-					
 					<label style="font-size: 13px; font-weight: 600; display:block; margin-bottom:4px;">ลิงก์ URL รูปภาพการ์ด:</label>
 					<input type="text" id="adminInputImg" class="admin-input">
 					
@@ -1042,8 +807,10 @@
 		</div>
 	</div>
 
+	<!-- ปุ่มแอดมินลอย -->
 	<button class="btn-admin" onclick="openAdminModal()">⚙️</button>
 
+	<!-- FB Group section -->
 	<div class="main-content" style="margin-top: 0; margin-bottom: 40px;">
 		<section class="community-box">
 			<div class="comm-info">
@@ -1059,7 +826,7 @@
 				</a>
 			</div>
 			<a href="https://m.facebook.com/groups/769079197144549/?ref=share" target="_blank" style="text-decoration: none; color: inherit; display: block;">
-				<div class="comm-qr" style="cursor: pointer; transition: all 0.3s ease;">
+				<div class="comm-qr" style="cursor: pointer;">
 					<div class="qr-placeholder">[ QR CODE<br>SCAN TO JOIN ]</div>
 					<span style="font-size: 13px; font-weight: 600; color: var(--accent-gold);">CLICK TO JOIN</span>
 				</div>
@@ -1079,40 +846,70 @@
 	</footer>
 
 	<script>
-		// ข้อมูลตั้งต้นของระบบเมื่อเปิดใช้งานเว็บครั้งแรก
+		// ข้อมูลจำลองแรกเริ่ม ปรับแต่งให้สวมโครงสร้างใหม่รองรับ vipBadge และ customColor
 		const defaultProducts = {
 			'OP-0002': {
 				category: 'Grace Prannapon',
 				title: 'MEMBER ID OP-0002',
 				bank: 'BANK ACCOUNT 125-1-69451-2 K-BANK',
-				img: 'https://cdn.discordapp.com/attachments/1032543542482051092/1517145216178585620/att._AtDnfXhCM48X771brxfp43qjO34P7INgwvTmRQcH0M.jpg?ex=6a353716&is=6a33e596&hm=8be23206d0e7d3ce5ca0d21ce2fb73711cd92a84dc6d10d216713d2528d6970b&'
+				img: 'https://cdn.discordapp.com/attachments/1032543542482051092/1517145216178585620/att._AtDnfXhCM48X771brxfp43qjO34P7INgwvTmRQcH0M.jpg?ex=6a353716&is=6a33e596&hm=8be23206d0e7d3ce5ca0d21ce2fb73711cd92a84dc6d10d216713d2528d6970b&',
+				vipBadge: 'VIP1',
+				customColor: '#ff0055'
 			},
 			'OP-0009': {
 				category: 'Gueanoon Metasit',
 				title: 'MEMBER ID OP-0009',
 				bank: 'BANK ACCOUNT 248-049-5094 • Krungthai',
-				img: 'https://cdn.discordapp.com/attachments/1032543542482051092/1517145200122921101/att.8G4-9QdKNngLNHccr6YWePJ7NTXFe4zoQJzBddO-cb8.jpg?ex=6a353712&is=6a33e592&hm=e4eddfb7c78e7a4cfb808b45c82b940e70cec6397a29ef9281a38776f8a0de39&'
+				img: 'https://cdn.discordapp.com/attachments/1032543542482051092/1517145200122921101/att.8G4-9QdKNngLNHccr6YWePJ7NTXFe4zoQJzBddO-cb8.jpg?ex=6a353712&is=6a33e592&hm=e4eddfb7c78e7a4cfb808b45c82b940e70cec6397a29ef9281a38776f8a0de39&',
+				vipBadge: 'none',
+				customColor: ''
 			},
 			'OP-0007': {
 				category: 'Impossible WD',
 				title: 'MEMBER ID OP-0007',
 				bank: 'BANK ACCOUNT 727-100-1767 •KRUNGSRI',
-				img: 'https://cdn.discordapp.com/attachments/1032543542482051092/1517145192036172000/att.G2a4goriDTb6YQT8TnYQs323xue5r8JzacdYxy911LM.jpg?ex=6a353710&is=6a33e590&hm=f364ea37cad9c0d53718c8e7c1c9b25541dd1d7a8c7f856137c87b838a98863e&'
+				img: 'https://cdn.discordapp.com/attachments/1032543542482051092/1517145192036172000/att.G2a4goriDTb6YQT8TnYQs323xue5r8JzacdYxy911LM.jpg?ex=6a353710&is=6a33e590&hm=f364ea37cad9c0d53718c8e7c1c9b25541dd1d7a8c7f856137c87b838a98863e&',
+				vipBadge: 'VIP2',
+				customColor: '#00cc66'
 			},
 			'OP-0001': {
 				category: '怜月',
 				title: 'MEMBER ID OP-0001',
 				bank: 'BANK ACCOUNT 419-X833-155 • SCB',
-				img: 'https://cdn.discordapp.com/attachments/1032543542482051092/1517145208305745940/att.Dz36qMOC278NzHOD7rc6fOw3i9eqNKILmD-H8ptXgJ8.jpg?ex=6a353714&is=6a33e594&hm=f3e1c580cc2d0301bc9eb9257ba821e39250badcc9e4f33c8fc9aaf794a02746&'
+				img: 'https://cdn.discordapp.com/attachments/1032543542482051092/1517145208305745940/att.Dz36qMOC278NzHOD7rc6fOw3i9eqNKILmD-H8ptXgJ8.jpg?ex=6a353714&is=6a33e594&hm=f3e1c580cc2d0301bc9eb9257ba821e39250badcc9e4f33c8fc9aaf794a02746&',
+				vipBadge: 'VIP3',
+				customColor: '#ffaa00'
 			}
 		};
 
-		// ดึงข้อมูลหลักจาก LocalStorage หรือถ้าไม่มีให้ใช้ตัวตั้งต้น
-		let productsData = JSON.parse(localStorage.getItem('tcg_products_data')) || defaultProducts;
+		const defaultThemeSettings = {
+			fontFamily: "'Prompt', 'Montserrat', sans-serif",
+			fontSize: "16",
+			slides: [
+				'https://cdn.discordapp.com/attachments/1032543052369244226/1517041103579123774/att.qlrtltFTXvdnLu--1TkDBRImXaEwpIzv8cM2iBT_CR8.jpg?ex=6a34d620&is=6a3384a0&hm=957f54f50f13fa5ad3d48fdad33cbd7fa0098d2151d1dc4e0f65cfd6fd35f60a&',
+				'https://cdn.discordapp.com/attachments/1032543542482051092/1517164536116019250/att.teUTN4aIESWhfrk8eFCo-xDDlx1JcIFeaZywQMNrJhI.jpg?ex=6a354914&is=6a33f794&hm=19469d7a6b5922fcabe2340eef795443b761f3d6a1b03d9cab776c3292698d99&',
+				'https://cdn.discordapp.com/attachments/1032543542482051092/1517164527580352743/att.Xbdlx9P49yxtT2s6GSyJBsM9fFAskxjn4gSvfYFbZzI.jpg?ex=6a354912&is=6a33f792&hm=7e6c0e3197a343f64bd9a714c82d00615d4cc57816c7cdf7febf7a6eb7cae402&'
+			]
+		};
 
-		// บันทึกข้อมูลลงฐานข้อมูลเบราว์เซอร์
+		let productsData = JSON.parse(localStorage.getItem('tcg_products_data')) || defaultProducts;
+		let themeSettings = JSON.parse(localStorage.getItem('tcg_theme_settings')) || defaultThemeSettings;
+
 		function saveProductsToStorage() {
 			localStorage.setItem('tcg_products_data', JSON.stringify(productsData));
+		}
+
+		// ใช้ฟังก์ชันนี้ปรับแต่งเฉพาะระบบ ฟอนต์ และ รูปหน้าปกสไลด์ (ตัดระบบเปลี่ยนสีรวมออก)
+		function applyThemeSettings() {
+			document.documentElement.style.setProperty('--body-font', themeSettings.fontFamily);
+			document.documentElement.style.setProperty('--base-font-size', themeSettings.fontSize + 'px');
+			
+			for(let i = 1; i <= 3; i++) {
+				const imgEl = document.getElementById(`slide-img-${i}`);
+				if(imgEl && themeSettings.slides[i-1]) {
+					imgEl.src = themeSettings.slides[i-1];
+				}
+			}
 		}
 
 		let currentIndex = 0;
@@ -1120,36 +917,20 @@
 		const dots = document.querySelectorAll('.dot');
 		const totalSlides = 3;
 
-		const themes = [
-			{ primary: '#0e1d35', dark: '#070f1e', accent: '#c19c5b' },
-			{ primary: '#0a353c', dark: '#04181b', accent: '#cfac62' },
-			{ primary: '#541422', dark: '#2e0a12', accent: '#d9a752' }
-		];
-
 		function showSlide(index) {
 			if (index >= totalSlides) currentIndex = 0;
 			else if (index < 0) currentIndex = totalSlides - 1;
 			else currentIndex = index;
-
-			if(wrapper) {
-				wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-			}
-			
+			if(wrapper) wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
 			dots.forEach(dot => dot.classList.remove('active'));
 			if(dots[currentIndex]) dots[currentIndex].classList.add('active');
-
-			const currentTheme = themes[currentIndex];
-			document.documentElement.style.setProperty('--primary-navy', currentTheme.primary);
-			document.documentElement.style.setProperty('--bg-dark', currentTheme.dark);
-			document.documentElement.style.setProperty('--accent-gold', currentTheme.accent);
 		}
 
 		function moveSlide(step) { showSlide(currentIndex + step); }
 		function currentSlide(index) { showSlide(index); }
-
 		setInterval(() => { moveSlide(1); }, 6000);
 
-		// ฟังก์ชันสร้าง UI การ์ดแบบ Dynamic บนหน้าเว็บ
+		// เรนเดอร์กล่องสินค้าให้ดึงป้าย VIP และ สีกำหนดเองของแต่ละร้านออกมาใช้งานแบบยืดหยุ่น
 		function renderFrontEndGrids() {
 			const homeGrid = document.getElementById('productGrid');
 			const allGrid = document.getElementById('allProductsGrid');
@@ -1161,60 +942,48 @@
 				const item = productsData[id];
 				const savedViews = localStorage.getItem(`views_${id}`) || "0";
 				
-				// จัดการ Badge พิเศษตามรหัสจำลอง
+				// ตรวจสอบข้อมูลสีกำหนดเอง และ ข้อมูลป้ายสถานะของร้านค้า
+				const shopColor = item.customColor || '';
+				const currentVip = item.vipBadge || 'none';
+
+				// ปรับสไตล์สีตามแบบฉบับเฉพาะตัวของร้านค้านั้นๆ
+				const cardStyle = shopColor ? `style="border: 2px solid ${shopColor}; box-shadow: 0 4px 20px ${shopColor}1a;"` : '';
+				const badgeStyle = shopColor ? `style="background-color: ${shopColor};"` : 'style="background-color: var(--accent-gold); color: #000;"';
+				const btnStyle = shopColor ? `style="background-color: ${shopColor}; color: #fff;"` : '';
+
 				let badgeHTML = '';
-				if (id === 'OP-0002') badgeHTML = '<span class="product-badge">HOT</span>';
-				if (id === 'OP-0007') badgeHTML = '<span class="product-badge">NEW</span>';
+				if (currentVip !== 'none') {
+					badgeHTML = `<span class="product-badge" ${badgeStyle}>${currentVip}</span>`;
+				}
 
 				const formattedBank = item.bank.toUpperCase().includes("BANK") ? item.bank : "BANK " + item.bank;
 
-				// 1. วาดลงหน้าแรก
-				if(homeGrid) {
-					homeGrid.innerHTML += `
-						<div class="product-card" data-member-id="${id}">
-							<div class="product-thumb">
-								${badgeHTML}
-								<div class="view-badge">👁️ <span id="view-home-${id}">${savedViews}</span></div>
-								<img src="${item.img}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://placehold.co/260x280?text=No+Image'">
-							</div>
-							<div class="product-info">
-								<div class="product-category">${item.category}</div>
-								<div class="product-title">${item.title}</div>
-								<div class="product-meta">
-									<div class="product-price">${formattedBank}</div>
-									<button class="btn-buy" onclick="openProductModal('${id}')">เพิ่มเติม</button>
-								</div>
+				const cardTemplate = `
+					<div class="product-card" data-member-id="${id}" ${cardStyle}>
+						<div class="product-thumb">
+							${badgeHTML}
+							<div class="view-badge">👁️ <span id="view-${id}">${savedViews}</span></div>
+							<img src="${item.img}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://placehold.co/260x280?text=No+Image'">
+						</div>
+						<div class="product-info">
+							<div class="product-category" ${shopColor ? `style="color:${shopColor}"` : ''}>${item.category}</div>
+							<div class="product-title">${item.title}</div>
+							<div class="product-meta">
+								<div class="product-price">${formattedBank}</div>
+								<button class="btn-buy" ${btnStyle} onclick="openProductModal('${id}')">เพิ่มเติม</button>
 							</div>
 						</div>
-					`;
-				}
+					</div>
+				`;
 
-				// 2. วาดลงหน้าคลังสินค้าทั้งหมด
-				if(allGrid) {
-					allGrid.innerHTML += `
-						<div class="product-card" data-member-id="${id}">
-							<div class="product-thumb">
-								${badgeHTML}
-								<div class="view-badge">👁️ ยอดวิว: <span id="view-all-${id}">${savedViews}</span></div>
-								<img src="${item.img}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://placehold.co/260x280?text=No+Image'">
-							</div>
-							<div class="product-info">
-								<div class="product-category">${item.category}</div>
-								<div class="product-title">${item.title}</div>
-								<div class="product-meta">
-									<div class="product-price">${formattedBank}</div>
-									<button class="btn-buy" onclick="openProductModal('${id}')">คลิกดูข้อมูล</button>
-								</div>
-							</div>
-						</div>
-					`;
-				}
+				if(homeGrid) homeGrid.innerHTML += cardTemplate;
+				if(allGrid) allGrid.innerHTML += cardTemplate;
 			});
 		}
 
 		function searchMember() {
 			const input = document.getElementById('memberSearchInput').value.trim().toUpperCase();
-			const cards = document.querySelectorAll('#productGrid .product-card');
+			const cards = document.querySelectorAll('.product-grid .product-card');
 			let foundMatch = false;
 
 			cards.forEach(card => {
@@ -1226,48 +995,16 @@
 					card.style.display = 'none';
 				}
 			});
-
-			let noResultMsg = document.getElementById('noResultMessage');
-			if (!foundMatch) {
-				if (!noResultMsg) {
-					noResultMsg = document.createElement('div');
-					noResultMsg.id = 'noResultMessage';
-					noResultMsg.innerHTML = `
-						<div style="text-align: center; padding: 50px 20px; color: #718096; grid-column: 1 / -1; width: 100%;">
-							<span style="font-size: 50px;">❌</span>
-							<h4 style="font-size: 18px; margin-top: 12px; color: var(--text-dark);">ไม่พบข้อมูลรหัสสมาชิก "${document.getElementById('memberSearchInput').value}"</h4>
-						</div>
-					`;
-					document.getElementById('productGrid').appendChild(noResultMsg);
-				}
-			} else {
-				if (noResultMsg) noResultMsg.remove();
-			}
 		}
 
-		function resetSearch() {
-			document.getElementById('memberSearchInput').value = "";
-			searchMember();
-		}
+		function resetSearch() { document.getElementById('memberSearchInput').value = ""; searchMember(); }
 
 		function navigateTo(pageId) {
-			document.querySelectorAll('.page-section').forEach(page => {
-				page.classList.remove('active');
-			});
+			document.querySelectorAll('.page-section').forEach(page => page.classList.remove('active'));
 			document.getElementById(pageId).classList.add('active');
 			window.scrollTo(0, 0);
 		}
 
-		// ฟังก์ชันระบบอัปเดตเลขยอดวิวในหน้าเว็บหลัก
-		function updateMainPageViews(id, value) {
-			const homeView = document.getElementById(`view-home-${id}`);
-			if(homeView) homeView.innerText = value;
-			
-			const allView = document.getElementById(`view-all-${id}`);
-			if(allView) allView.innerText = value;
-		}
-
-		// ฟังก์ชันเปิดหน้าต่างป๊อปอัปพร้อมเพิ่มยอดวิวและดึงคอมเมนต์
 		function openProductModal(id) {
 			const product = productsData[id];
 			if(!product) return;
@@ -1275,7 +1012,9 @@
 			let currentViews = parseInt(localStorage.getItem(`views_${id}`) || "0");
 			currentViews++;
 			localStorage.setItem(`views_${id}`, currentViews);
-			updateMainPageViews(id, currentViews);
+			
+			const viewSpan = document.getElementById(`view-${id}`);
+			if(viewSpan) viewSpan.innerText = currentViews;
 
 			document.getElementById('modalProductImg').src = product.img;
 			document.getElementById('modalCategory').innerText = product.category;
@@ -1284,9 +1023,7 @@
 			document.getElementById('modalBank').innerText = product.bank.toUpperCase().includes("BANK") ? product.bank : "BANK " + product.bank;
 			document.getElementById('modalViewCount').innerText = currentViews;
 
-			const submitBtn = document.getElementById('modalSubmitBtn');
-			submitBtn.onclick = function() { addModalComment(id); };
-
+			document.getElementById('modalSubmitBtn').onclick = function() { addModalComment(id); };
 			loadModalComments(id);
 
 			document.getElementById('productModal').classList.add('open');
@@ -1303,57 +1040,46 @@
 		function loadModalComments(id) {
 			const listContainer = document.getElementById('modalCommentList');
 			listContainer.innerHTML = "";
-			
 			let comments = JSON.parse(localStorage.getItem(`comments_${id}`) || "[]");
-			
 			if(comments.length === 0) {
 				listContainer.innerHTML = `<p style="color:#a0aec0; font-style:italic; text-align:center; padding:10px 0;">ยังไม่มีข้อความความเห็นสำหรับสมาชิกรายนี้...</p>`;
 				return;
 			}
-
 			comments.forEach(cmt => {
 				const div = document.createElement('div');
 				div.className = 'modal-comment-item';
 				div.innerHTML = `<span class="comment-user">${escapeHtml(cmt.name)}:</span> ${escapeHtml(cmt.text)}`;
 				listContainer.appendChild(div);
 			});
-			
 			listContainer.scrollTop = listContainer.scrollHeight;
 		}
 
 		function addModalComment(id) {
 			const nameInput = document.getElementById('modalInputName');
 			const textInput = document.getElementById('modalInputText');
-			
 			const name = nameInput.value.trim();
 			const text = textInput.value.trim();
-
-			if (!name || !text) {
-				alert("กรุณากรอกระบุ 'ชื่อของคุณ' และ 'ข้อความคอมเมนต์' ให้ครบถ้วนก่อนส่งครับ");
-				return;
-			}
+			if (!name || !text) { alert("กรุณากรอกข้อมูลคอมเมนต์ให้ครบถ้วนก่อนส่งครับ"); return; }
 
 			let comments = JSON.parse(localStorage.getItem(`comments_${id}`) || "[]");
 			comments.push({ name: name, text: text });
 			localStorage.setItem(`comments_${id}`, JSON.stringify(comments));
-
-			textInput.value = ""; 
-			loadModalComments(id); 
+			textInput.value = ""; loadModalComments(id); 
 		}
 
-		function escapeHtml(str) {
-			return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
-		}
+		function escapeHtml(str) { return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
 
-		/* ⚙️ ฟังก์ชันควบคุมระบบแอดมินและการตรวจสอบรหัสผ่าน (Admin Control System & Password) */
+		/* ⚙️ ฟังก์ชันสำหรับฝั่งระบบแอดมิน (Admin Control Panel) */
 		function openAdminModal() {
-			// [แก้ไขความปลอดภัย] ตรวจสอบรหัสผ่านแอดมินก่อนเข้าสู่ระบบ
-			const password = prompt("🔒 กรุณากรอกรหัสผ่านแอดมินเพื่อเข้าสู่ระบบ:");
-			if (password === null) return; // กดยกเลิก
-			if (password !== "1148") {
-				alert("❌ รหัสผ่านไม่ถูกต้อง! คุณไม่มีสิทธิ์เข้าถึงระบจัดการร้านค้าแอดมิน");
-				return;
-			}
+			const password = prompt("🔒 กรุณากรอกรหัสผ่านแอดมินเพื่อตรวจสอบสิทธิ์:");
+			if (password === null) return; 
+			if (password !== "1148") { alert("❌ รหัสผ่านไม่ถูกต้อง!"); return; }
+
+			document.getElementById('adminFontFamily').value = themeSettings.fontFamily;
+			document.getElementById('adminFontSize').value = themeSettings.fontSize;
+			document.getElementById('adminSlideImg1').value = themeSettings.slides[0] || '';
+			document.getElementById('adminSlideImg2').value = themeSettings.slides[1] || '';
+			document.getElementById('adminSlideImg3').value = themeSettings.slides[2] || '';
 
 			renderAdminShopList();
 			document.getElementById('adminModal').classList.add('open');
@@ -1368,72 +1094,70 @@
 			}
 		}
 
-		// ➕ [เพิ่มใหม่] ฟังก์ชันสำหรับบันทึกการเพิ่มร้านค้าใหม่
+		function saveGlobalThemeSettings() {
+			themeSettings.fontFamily = document.getElementById('adminFontFamily').value;
+			themeSettings.fontSize = document.getElementById('adminFontSize').value;
+			themeSettings.slides[0] = document.getElementById('adminSlideImg1').value.trim();
+			themeSettings.slides[1] = document.getElementById('adminSlideImg2').value.trim();
+			themeSettings.slides[2] = document.getElementById('adminSlideImg3').value.trim();
+
+			localStorage.setItem('tcg_theme_settings', JSON.stringify(themeSettings));
+			applyThemeSettings();
+			alert("💾 บันทึกการอัปเดตแบนเนอร์และฟอนต์สำเร็จ!");
+		}
+
 		function addNewShop() {
 			const idInput = document.getElementById('adminAddId');
 			const catInput = document.getElementById('adminAddCategory');
+			const vipInput = document.getElementById('adminAddVip');
+			const colorInput = document.getElementById('adminAddColor');
 			const bankInput = document.getElementById('adminAddBank');
 			const imgInput = document.getElementById('adminAddImg');
 
 			const id = idInput.value.trim().toUpperCase();
 			const category = catInput.value.trim();
+			const vip = vipInput.value;
+			const color = colorInput.value;
 			const bank = bankInput.value.trim();
 			const img = imgInput.value.trim();
 
-			if(!id || !category || !bank || !img) {
-				alert("กรุณากรอกข้อมูลเพื่อเพิ่มร้านค้าใหม่ให้ครบถ้วนทุกช่องครับ!");
-				return;
-			}
+			if(!id || !category || !bank || !img) { alert("กรุณากรอกข้อมูลสมาชิกใหม่ให้ครบถ้วน!"); return; }
+			if(productsData[id]) { alert(`❌ รหัสสมาชิก "${id}" นี้มีอยู่แล้วในระบบ!`); return; }
 
-			// ตรวจสอบไม่ให้รหัสสมาชิกซ้ำกันในระบบ
-			if(productsData[id]) {
-				alert(`❌ รหัสสมาชิก "${id}" นี้มีอยู่ในระบบแล้ว! โปรดใช้รหัสอื่นหรือกดแก้ไขข้อมูลที่รายการด้านล่างแทน`);
-				return;
-			}
-
-			// บันทึกข้อมูลร้านค้าใหม่เข้าโครงสร้าง Object หลัก
 			productsData[id] = {
 				category: category,
 				title: `MEMBER ID ${id}`,
-				bank: bank.toUpperCase().includes("BANK") ? bank : "BANK " + bank,
-				img: img
+				bank: bank,
+				img: img,
+				vipBadge: vip,
+				customColor: color
 			};
 
-			// อัปเดตข้อมูลถาวรและสั่งโหลดหน้าเว็บใหม่
 			saveProductsToStorage();
 			renderFrontEndGrids();
 			renderAdminShopList();
 
-			// ล้างช่องฟอร์มหลังบันทึกเสร็จ
-			idInput.value = '';
-			catInput.value = '';
-			bankInput.value = '';
-			imgInput.value = '';
-
-			alert(`✨ เพิ่มร้านค้าสมาชิกใหม่รหัส ${id} สำเร็จเรียบร้อยแล้ว!`);
+			idInput.value = ''; catInput.value = ''; bankInput.value = ''; imgInput.value = ''; vipInput.value = 'none'; colorInput.value = '#d31121';
+			alert(`✨ เพิ่มสมาชิกใหม่รหัส ${id} สำเร็จ!`);
 		}
 
 		function renderAdminShopList() {
 			const listContainer = document.getElementById('adminShopList');
 			listContainer.innerHTML = "";
-
 			const keys = Object.keys(productsData);
 			if(keys.length === 0) {
 				listContainer.innerHTML = `<p style="color:#718096; text-align:center; padding: 20px 0;">❌ ไม่พบข้อมูลร้านค้าในระบบ</p>`;
 				return;
 			}
-
 			keys.forEach(id => {
 				const item = productsData[id];
 				const div = document.createElement('div');
 				div.className = 'admin-list-item';
 				div.innerHTML = `
-					<div>
-						<strong style="color:var(--primary-navy)">${id}</strong> - <span id="admin-list-name-${id}">${item.category}</span>
-					</div>
+					<div><strong style="color:var(--primary-navy)">${id}</strong> [${item.vipBadge || 'ทั่วไป'}] - <span>${item.category}</span></div>
 					<div>
 						<button class="admin-btn-edit" onclick="startAdminEdit('${id}')">แก้ไข</button>
-						<button class="admin-btn-delete" onclick="deleteAdminShop('${id}')">ลบร้านค้า</button>
+						<button class="admin-btn-delete" onclick="deleteAdminShop('${id}')">ลบ</button>
 					</div>
 				`;
 				listContainer.appendChild(div);
@@ -1448,13 +1172,12 @@
 			document.getElementById('adminInputCategory').value = item.category;
 			document.getElementById('adminInputBank').value = item.bank;
 			document.getElementById('adminInputImg').value = item.img;
+			document.getElementById('adminInputVip').value = item.vipBadge || 'none';
+			document.getElementById('adminInputColor').value = item.customColor || '#d31121';
 			document.getElementById('adminEditForm').style.display = 'block';
 		}
 
-		function cancelAdminEdit() {
-			currentEditingId = null;
-			document.getElementById('adminEditForm').style.display = 'none';
-		}
+		function cancelAdminEdit() { currentEditingId = null; document.getElementById('adminEditForm').style.display = 'none'; }
 
 		function saveAdminEdit() {
 			if(!currentEditingId) return;
@@ -1462,48 +1185,38 @@
 			const category = document.getElementById('adminInputCategory').value.trim();
 			const bank = document.getElementById('adminInputBank').value.trim();
 			const img = document.getElementById('adminInputImg').value.trim();
+			const vip = document.getElementById('adminInputVip').value;
+			const color = document.getElementById('adminInputColor').value;
 
-			if(!category || !bank || !img) {
-				alert("กรุณากรอกข้อมูลให้ครบถ้วนก่อนบันทึก!");
-				return;
-			}
+			if(!category || !bank || !img) { alert("กรุณากรอกข้อมูลให้ครบถ้วน!"); return; }
 
 			productsData[id].category = category;
 			productsData[id].bank = bank;
 			productsData[id].img = img;
+			productsData[id].vipBadge = vip;
+			productsData[id].customColor = color;
 
-			// บันทึกและรีเรนเดอร์ข้อมูลใหม่
 			saveProductsToStorage();
 			renderFrontEndGrids();
-
-			alert(`บันทึกการแก้ไขรหัส ${id} สำเร็จ!`);
+			alert(`แก้ไขข้อมูลรหัส ${id} สำเร็จ!`);
 			cancelAdminEdit();
 			renderAdminShopList();
 		}
 
 		function deleteAdminShop(id) {
-			if(confirm(`คุณแน่ใจหรือไม่ที่จะทำการ "ลบร้านค้า" รหัสสมาชิก ${id} ออกจากระบบถาวร?`)) {
-				// ลบข้อมูลออกจาก Object
+			if(confirm(`คุณแน่ใจหรือไม่ที่จะทำการลบสมาชิก ${id}?`)) {
 				delete productsData[id];
-
-				// บันทึกการเปลี่ยนแปลงและรีเฟรชหน้าเว็บ
 				saveProductsToStorage();
 				renderFrontEndGrids();
-
-				alert("ทำการลบข้อมูลร้านค้าและสมาชิกเรียบร้อยแล้ว!");
+				alert("ลบข้อมูลเรียบร้อยแล้ว!");
 				cancelAdminEdit();
 				renderAdminShopList();
 			}
 		}
 
-		// เริ่มระบบดึงข้อมูลจาก LocalStorage และยอดวิวมาโชว์เมื่อเว็บโหลดเสร็จสิ้น
 		window.onload = function() {
+			applyThemeSettings(); 
 			renderFrontEndGrids();
-
-			Object.keys(productsData).forEach(id => {
-				let savedViews = localStorage.getItem(`views_${id}`) || "0";
-				updateMainPageViews(id, savedViews);
-			});
 		};
 	</script>
 </body>
