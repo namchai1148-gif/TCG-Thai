@@ -416,12 +416,11 @@
 			margin-top: auto;
 		}
 
-.product-price {
-    font-size: 12px;
-    font-weight: 600;
-    word-break: break-all;
-    color: #718096 !important; /* ✨ เปลี่ยนเป็นสีเทา Slate Gray */
-}
+		.product-price {
+			font-size: 12px;
+			font-weight: 600;
+			word-break: break-all;
+			color: #718096 !important;
 		}
 
 		.btn-buy {
@@ -476,15 +475,15 @@
 			display: block;
 		}
 
-		/* 👁️‍🗨️ [เพิ่มใหม่] สไตล์ของระบบกล่องป๊อปอัปรายละเอียดสินค้า (Modal Popup Style) */
+		/* Modal Popup Style */
 		.modal-overlay {
 			position: fixed;
 			top: 0;
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background-color: rgba(7, 15, 30, 0.75); /* พื้นหลังมืดสีน้ำเงินเข้ม */
-			backdrop-filter: blur(8px); /* ✨ เอฟเฟกต์กระจกฝ้า/เบลอ */
+			background-color: rgba(7, 15, 30, 0.75);
+			backdrop-filter: blur(8px);
 			z-index: 2000;
 			display: flex;
 			justify-content: center;
@@ -782,6 +781,71 @@
 		.footer-brands { display: flex; gap: 20px; align-items: center; font-weight: 700; color: var(--text-light); }
 		.brand-tag { padding: 4px 12px; background: rgba(255, 255, 255, 0.1); border-radius: 4px; font-size: 12px; letter-spacing: 1px; }
 
+		/* สไตล์ของปุ่มแอดมินลอย และหน้าต่างแอดมิน */
+		.btn-admin { 
+			position: fixed; 
+			bottom: 30px; 
+			right: 30px; 
+			z-index: 1999; 
+			width: 60px; 
+			height: 60px; 
+			border-radius: 50%; 
+			border: 2px solid var(--accent-gold); 
+			background: var(--primary-navy); 
+			color: var(--accent-gold); 
+			cursor: pointer; 
+			font-size: 26px; 
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: all 0.3s ease;
+		}
+		.btn-admin:hover {
+			transform: scale(1.1) rotate(45deg);
+			background: var(--accent-gold);
+			color: #000;
+		}
+		.admin-list-item {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 12px;
+			background: #f8fafc;
+			border-radius: 8px;
+			margin-bottom: 10px;
+			border: 1px solid #e2e8f0;
+		}
+		.admin-btn-edit { background: #3182ce; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-family: 'Prompt', sans-serif; font-size: 13px; margin-right: 5px; font-weight: 600;}
+		.admin-btn-delete { background: var(--accent-red); color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-family: 'Prompt', sans-serif; font-size: 13px; font-weight: 600;}
+		
+		/* จัดการฟอร์ม Input ของแอดมิน */
+		.admin-form-box {
+			background: #e2e8f0; 
+			padding: 15px; 
+			border-radius: 12px; 
+			margin-bottom: 20px; 
+			border: 1px solid #cbd5e0;
+		}
+		.admin-edit-form {
+			background: #edf2f7;
+			padding: 15px;
+			border-radius: 12px;
+			margin-top: 15px;
+			display: none;
+			border: 1px solid #cbd5e0;
+		}
+		.admin-input {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #cbd5e0;
+			border-radius: 6px;
+			font-family: 'Prompt', sans-serif;
+			outline: none;
+		}
+		.admin-input:focus { border-color: var(--accent-gold); }
+
 		@media (max-width: 768px) {
 			nav ul { display: none; }
 			.hero-slide { height: auto; }
@@ -819,9 +883,7 @@
 		</div>
 	</header>
 
-	<!-- 🏠 [หน้าแรก - HOME PAGE] -->
 	<div id="homePage" class="page-section active">
-		<!-- แบนเนอร์สไลด์ -->
 		<section class="hero-banner-section">
 			<div class="hero-container">
 				<button class="slide-btn slide-prev" onclick="moveSlide(-1)">❮</button>
@@ -856,7 +918,6 @@
 					<p>การ์ดและร้านค้าแนะนำที่ผ่านการตรวจสอบอย่างปลอดภัย</p>
 				</div>
 
-				<!-- กล่องค้นหารหัสสมาชิกหน้าแรก -->
 				<div class="search-wrapper">
 					<label style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--primary-navy);">🔍 ค้นหารหัสสมาชิกหน้าแรก</label>
 					<div class="search-box">
@@ -866,76 +927,8 @@
 					</div>
 				</div>
 
-				<!-- สินค้าโชว์ 4 ชิ้นที่หน้าแรก -->
-				<div class="product-grid" id="productGrid">
-					<!-- ใบที่ 1 -->
-					<div class="product-card" data-member-id="OP-0002">
-						<div class="product-thumb">
-							<span class="product-badge">HOT</span>
-							<div class="view-badge">👁️ <span id="view-home-OP-0002">0</span></div>
-							<img src="https://cdn.discordapp.com/attachments/1032543542482051092/1517145216178585620/att._AtDnfXhCM48X771brxfp43qjO34P7INgwvTmRQcH0M.jpg?ex=6a353716&is=6a33e596&hm=8be23206d0e7d3ce5ca0d21ce2fb73711cd92a84dc6d10d216713d2528d6970b&" style="width: 100%; height: 100%; object-fit: cover;">
-						</div>
-						<div class="product-info">
-							<div class="product-category">Grace Prannapon</div>
-							<div class="product-title">MEMBER ID OP-0002</div>
-							<div class="product-meta">
-								<div class="product-price">BANK 125-1-69451-2</div>
-								<button class="btn-buy" onclick="openProductModal('OP-0002')">เพิ่มเติม</button>
-							</div>
-						</div>
-					</div>
+				<div class="product-grid" id="productGrid"></div>
 
-					<!-- ใบที่ 2 -->
-					<div class="product-card" data-member-id="OP-0009">
-						<div class="product-thumb">
-							<div class="view-badge">👁️ <span id="view-home-OP-0009">0</span></div>
-							<img src="https://cdn.discordapp.com/attachments/1032543542482051092/1517145200122921101/att.8G4-9QdKNngLNHccr6YWePJ7NTXFe4zoQJzBddO-cb8.jpg?ex=6a353712&is=6a33e592&hm=e4eddfb7c78e7a4cfb808b45c82b940e70cec6397a29ef9281a38776f8a0de39&" style="width: 100%; height: 100%; object-fit: cover;">
-						</div>
-						<div class="product-info">
-							<div class="product-category">Gueanoon Metasit</div>
-							<div class="product-title">MEMBER ID OP-0009</div>
-							<div class="product-meta">
-								<div class="product-price">BANK 248-049-5094</div>
-								<button class="btn-buy" onclick="openProductModal('OP-0009')">เพิ่มเติม</button>
-							</div>
-						</div>
-					</div>
-
-					<!-- ใบที่ 3 -->
-					<div class="product-card" data-member-id="OP-0007">
-						<div class="product-thumb">
-							<span class="product-badge">NEW</span>
-							<div class="view-badge">👁️ <span id="view-home-OP-0007">0</span></div>
-							<img src="https://cdn.discordapp.com/attachments/1032543542482051092/1517145192036172000/att.G2a4goriDTb6YQT8TnYQs323xue5r8JzacdYxy911LM.jpg?ex=6a353710&is=6a33e590&hm=f364ea37cad9c0d53718c8e7c1c9b25541dd1d7a8c7f856137c87b838a98863e&" style="width: 100%; height: 100%; object-fit: cover;">
-						</div>
-						<div class="product-info">
-							<div class="product-category">Impossible WD</div>
-							<div class="product-title">MEMBER ID OP-0007</div>
-							<div class="product-meta">
-								<div class="product-price">BANK 727-100-1767</div>
-								<button class="btn-buy" onclick="openProductModal('OP-0007')">เพิ่มเติม</button>
-							</div>
-						</div>
-					</div>
-
-					<!-- ใบที่ 4 -->
-					<div class="product-card" data-member-id="OP-0001">
-						<div class="product-thumb">
-							<div class="view-badge">👁️ <span id="view-home-OP-0001">0</span></div>
-							<img src="https://cdn.discordapp.com/attachments/1032543542482051092/1517145208305745940/att.Dz36qMOC278NzHOD7rc6fOw3i9eqNKILmD-H8ptXgJ8.jpg?ex=6a353714&is=6a33e594&hm=f3e1c580cc2d0301bc9eb9257ba821e39250badcc9e4f33c8fc9aaf794a02746&" style="width: 100%; height: 100%; object-fit: cover;">
-						</div>
-						<div class="product-info">
-							<div class="product-category">怜月</div>
-							<div class="product-title">MEMBER ID OP-0001</div>
-							<div class="product-meta">
-								<div class="product-price">BANK 419-X833-155</div>
-								<button class="btn-buy" onclick="openProductModal('OP-0001')">เพิ่มเติม</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- ปุ่มนำทางไปยังหน้าคลังสินค้าทั้งหมด -->
 				<div class="center-btn-container">
 					<button class="btn-view-all" onclick="navigateTo('allProductsPage')">🌐 ดูสินค้าทั้งหมดในคลังสินค้า ❯</button>
 				</div>
@@ -943,7 +936,6 @@
 		</main>
 	</div>
 
-	<!-- 📦 [หน้าใหม่ - ALL PRODUCTS PAGE] -->
 	<div id="allProductsPage" class="page-section">
 		<main class="main-content" style="margin-top:30px;">
 			<div class="section-header">
@@ -954,80 +946,10 @@
 				<p>คลิกปุ่ม "คลิกดูข้อมูล" เพื่อเปิดป๊อปอัปตรวจสอบเครดิต ยอดเข้าชม และแสดงความคิดเห็น</p>
 			</div>
 
-			<!-- ตารางรวมสินค้าทั้งหมด -->
-			<div class="product-grid" id="allProductsGrid">
-				
-				<!-- ใบที่ 1 ในคลัง -->
-				<div class="product-card">
-					<div class="product-thumb">
-						<span class="product-badge">HOT</span>
-						<div class="view-badge">👁️ ยอดวิว: <span id="view-all-OP-0002">0</span></div>
-						<img src="https://cdn.discordapp.com/attachments/1032543542482051092/1517145216178585620/att._AtDnfXhCM48X771brxfp43qjO34P7INgwvTmRQcH0M.jpg?ex=6a353716&is=6a33e596&hm=8be23206d0e7d3ce5ca0d21ce2fb73711cd92a84dc6d10d216713d2528d6970b&" style="width: 100%; height: 100%; object-fit: cover;">
-					</div>
-					<div class="product-info">
-						<div class="product-category">Grace Prannapon</div>
-						<div class="product-title">MEMBER ID OP-0002</div>
-						<div class="product-meta">
-							<div class="product-price">BANK 125-1-69451-2</div>
-							<button class="btn-buy" onclick="openProductModal('OP-0002')">คลิกดูข้อมูล</button>
-						</div>
-					</div>
-				</div>
-
-				<!-- ใบที่ 2 ในคลัง -->
-				<div class="product-card">
-					<div class="product-thumb">
-						<div class="view-badge">👁️ ยอดวิว: <span id="view-all-OP-0009">0</span></div>
-						<img src="https://cdn.discordapp.com/attachments/1032543542482051092/1517145200122921101/att.8G4-9QdKNngLNHccr6YWePJ7NTXFe4zoQJzBddO-cb8.jpg?ex=6a353712&is=6a33e592&hm=e4eddfb7c78e7a4cfb808b45c82b940e70cec6397a29ef9281a38776f8a0de39&" style="width: 100%; height: 100%; object-fit: cover;">
-					</div>
-					<div class="product-info">
-						<div class="product-category">Gueanoon Metasit</div>
-						<div class="product-title">MEMBER ID OP-0009</div>
-						<div class="product-meta">
-							<div class="product-price">BANK 248-049-5094</div>
-							<button class="btn-buy" onclick="openProductModal('OP-0009')">คลิกดูข้อมูล</button>
-						</div>
-					</div>
-				</div>
-
-				<!-- ใบที่ 3 ในคลัง -->
-				<div class="product-card">
-					<div class="product-thumb">
-						<span class="product-badge">NEW</span>
-						<div class="view-badge">👁️ ยอดวิว: <span id="view-all-OP-0007">0</span></div>
-						<img src="https://cdn.discordapp.com/attachments/1032543542482051092/1517145192036172000/att.G2a4goriDTb6YQT8TnYQs323xue5r8JzacdYxy911LM.jpg?ex=6a353710&is=6a33e590&hm=f364ea37cad9c0d53718c8e7c1c9b25541dd1d7a8c7f856137c87b838a98863e&" style="width: 100%; height: 100%; object-fit: cover;">
-					</div>
-					<div class="product-info">
-						<div class="product-category">Impossible WD</div>
-						<div class="product-title">MEMBER ID OP-0007</div>
-						<div class="product-meta">
-							<div class="product-price">BANK 727-100-1767</div>
-							<button class="btn-buy" onclick="openProductModal('OP-0007')">คลิกดูข้อมูล</button>
-						</div>
-					</div>
-				</div>
-
-				<!-- ใบที่ 4 ในคลัง -->
-				<div class="product-card">
-					<div class="product-thumb">
-						<div class="view-badge">👁️ ยอดวิว: <span id="view-all-OP-0001">0</span></div>
-						<img src="https://cdn.discordapp.com/attachments/1032543542482051092/1517145208305745940/att.Dz36qMOC278NzHOD7rc6fOw3i9eqNKILmD-H8ptXgJ8.jpg?ex=6a353714&is=6a33e594&hm=f3e1c580cc2d0301bc9eb9257ba821e39250badcc9e4f33c8fc9aaf794a02746&" style="width: 100%; height: 100%; object-fit: cover;">
-					</div>
-					<div class="product-info">
-						<div class="product-category">怜月</div>
-						<div class="product-title">MEMBER ID OP-0001</div>
-						<div class="product-meta">
-							<div class="product-price">BANK 419-X833-155</div>
-							<button class="btn-buy" onclick="openProductModal('OP-0001')">คลิกดูข้อมูล</button>
-						</div>
-					</div>
-				</div>
-
-			</div>
+			<div class="product-grid" id="allProductsGrid"></div>
 		</main>
 	</div>
 
-	<!-- 🛑 [เพิ่มใหม่] โครงสร้างหน้าต่างป๊อปอัปรายละเอียด (Dynamic Modal Overlay) -->
 	<div id="productModal" class="modal-overlay" onclick="closeProductModal(event)">
 		<div class="modal-content-box" onclick="event.stopPropagation()">
 			<div class="modal-header">
@@ -1035,7 +957,6 @@
 				<button class="btn-close-modal" onclick="closeProductModal(null)">×</button>
 			</div>
 			<div class="modal-body">
-				<!-- ข้อมูลรายละเอียดด้านบน -->
 				<div class="modal-product-details">
 					<div class="modal-img-wrapper">
 						<img id="modalProductImg" src="" alt="Product Image">
@@ -1048,12 +969,10 @@
 					</div>
 				</div>
 
-				<!-- ตัวเลขยอดผู้ชมจริง -->
 				<div class="modal-view-counter">
 					👁️ ยอดผู้เข้าชมรายละเอียดสมาชิกนี้: <span id="modalViewCount">0</span> ครั้ง
 				</div>
 
-				<!-- โซนอ่านและส่งคอมเมนต์ -->
 				<div class="modal-comment-section">
 					<div class="modal-comment-title">💬 ความคิดเห็น / รีวิวเครดิตจากสมาชิกคนอื่น</div>
 					<div id="modalCommentList" class="modal-comment-list"></div>
@@ -1070,7 +989,61 @@
 		</div>
 	</div>
 
-	<!-- ส่วนร่วมกลุ่ม Facebook -->
+	<div id="adminModal" class="modal-overlay" onclick="closeAdminModal(event)">
+		<div class="modal-content-box" style="max-width: 550px;" onclick="event.stopPropagation()">
+			<div class="modal-header" style="background: var(--bg-dark);">
+				<h3>⚙️ ระบบจัดการร้านค้าแอดมิน (สิทธิ์ผ่านแล้ว)</h3>
+				<button class="btn-close-modal" onclick="closeAdminModal(null)">×</button>
+			</div>
+			<div class="modal-body">
+				
+				<div class="admin-form-box">
+					<h4 style="margin-bottom: 12px; color: var(--primary-navy); border-bottom: 2px solid var(--accent-gold); padding-bottom: 5px;">➕ เพิ่มร้านค้า / สมาชิกใหม่</h4>
+					<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+						<div>
+							<label style="font-size: 12px; font-weight: 600; color:#4a5568;">รหัสสมาชิก (เช่น OP-0010):</label>
+							<input type="text" id="adminAddId" class="admin-input" style="margin-bottom:5px;" placeholder="OP-0010">
+						</div>
+						<div>
+							<label style="font-size: 12px; font-weight: 600; color:#4a5568;">ชื่อสมาชิก / ร้านค้า (Category):</label>
+							<input type="text" id="adminAddCategory" class="admin-input" style="margin-bottom:5px;" placeholder="ชื่อร้านหรือชื่อจริง">
+						</div>
+					</div>
+					<label style="font-size: 12px; font-weight: 600; display:block; margin-top:5px; color:#4a5568;">ข้อมูลบัญชีธนาคาร (BANK):</label>
+					<input type="text" id="adminAddBank" class="admin-input" style="margin-bottom:5px;" placeholder="เช่น 125-1-69451-2 K-BANK">
+					
+					<label style="font-size: 12px; font-weight: 600; display:block; margin-top:5px; color:#4a5568;">ลิงก์ URL รูปภาพการ์ดประจำร้าน:</label>
+					<input type="text" id="adminAddImg" class="admin-input" style="margin-bottom:10px;" placeholder="https://example.com/image.jpg">
+					
+					<button class="btn-submit-comment" style="width: 100%; background: #28a745; text-shadow: 0 1px 2px rgba(0,0,0,0.2);" onclick="addNewShop()">✨ บันทึกและเพิ่มร้านค้าใหม่</button>
+				</div>
+
+				<h4 style="margin-bottom: 8px; color: var(--primary-navy);">📋 รายการร้านค้าทั้งหมดในระบบ</h4>
+				<div id="adminShopList" style="max-height: 200px; overflow-y: auto; margin-bottom: 15px;">
+					</div>
+				
+				<div id="adminEditForm" class="admin-edit-form">
+					<h4 style="margin-bottom: 12px; color: var(--primary-navy);">✏️ แก้ไขข้อมูลสมาชิก: <span id="adminEditingId" style="color:var(--accent-red)"></span></h4>
+					<label style="font-size: 13px; font-weight: 600; display:block; margin-bottom:4px;">ชื่อสมาชิก / ร้านค้า (Category):</label>
+					<input type="text" id="adminInputCategory" class="admin-input">
+					
+					<label style="font-size: 13px; font-weight: 600; display:block; margin-bottom:4px;">ข้อมูลบัญชีธนาคาร (BANK):</label>
+					<input type="text" id="adminInputBank" class="admin-input">
+					
+					<label style="font-size: 13px; font-weight: 600; display:block; margin-bottom:4px;">ลิงก์ URL รูปภาพการ์ด:</label>
+					<input type="text" id="adminInputImg" class="admin-input">
+					
+					<div style="display: flex; gap: 10px; margin-top: 5px;">
+						<button class="btn-submit-comment" style="flex: 1;" onclick="saveAdminEdit()">บันทึกข้อมูล</button>
+						<button class="btn-reset" style="padding: 10px 20px;" onclick="cancelAdminEdit()">ยกเลิก</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<button class="btn-admin" onclick="openAdminModal()">⚙️</button>
+
 	<div class="main-content" style="margin-top: 0; margin-bottom: 40px;">
 		<section class="community-box">
 			<div class="comm-info">
@@ -1106,8 +1079,8 @@
 	</footer>
 
 	<script>
-		// ข้อมูลจำลองของสินค้ารวมทั้งหมด เพื่อให้ป๊อปอัปดึงไปแสดงผลแบบไดนามิก
-		const productsData = {
+		// ข้อมูลตั้งต้นของระบบเมื่อเปิดใช้งานเว็บครั้งแรก
+		const defaultProducts = {
 			'OP-0002': {
 				category: 'Grace Prannapon',
 				title: 'MEMBER ID OP-0002',
@@ -1133,6 +1106,14 @@
 				img: 'https://cdn.discordapp.com/attachments/1032543542482051092/1517145208305745940/att.Dz36qMOC278NzHOD7rc6fOw3i9eqNKILmD-H8ptXgJ8.jpg?ex=6a353714&is=6a33e594&hm=f3e1c580cc2d0301bc9eb9257ba821e39250badcc9e4f33c8fc9aaf794a02746&'
 			}
 		};
+
+		// ดึงข้อมูลหลักจาก LocalStorage หรือถ้าไม่มีให้ใช้ตัวตั้งต้น
+		let productsData = JSON.parse(localStorage.getItem('tcg_products_data')) || defaultProducts;
+
+		// บันทึกข้อมูลลงฐานข้อมูลเบราว์เซอร์
+		function saveProductsToStorage() {
+			localStorage.setItem('tcg_products_data', JSON.stringify(productsData));
+		}
 
 		let currentIndex = 0;
 		const wrapper = document.getElementById('sliderWrapper');
@@ -1167,6 +1148,69 @@
 		function currentSlide(index) { showSlide(index); }
 
 		setInterval(() => { moveSlide(1); }, 6000);
+
+		// ฟังก์ชันสร้าง UI การ์ดแบบ Dynamic บนหน้าเว็บ
+		function renderFrontEndGrids() {
+			const homeGrid = document.getElementById('productGrid');
+			const allGrid = document.getElementById('allProductsGrid');
+			
+			if(homeGrid) homeGrid.innerHTML = '';
+			if(allGrid) allGrid.innerHTML = '';
+
+			Object.keys(productsData).forEach(id => {
+				const item = productsData[id];
+				const savedViews = localStorage.getItem(`views_${id}`) || "0";
+				
+				// จัดการ Badge พิเศษตามรหัสจำลอง
+				let badgeHTML = '';
+				if (id === 'OP-0002') badgeHTML = '<span class="product-badge">HOT</span>';
+				if (id === 'OP-0007') badgeHTML = '<span class="product-badge">NEW</span>';
+
+				const formattedBank = item.bank.toUpperCase().includes("BANK") ? item.bank : "BANK " + item.bank;
+
+				// 1. วาดลงหน้าแรก
+				if(homeGrid) {
+					homeGrid.innerHTML += `
+						<div class="product-card" data-member-id="${id}">
+							<div class="product-thumb">
+								${badgeHTML}
+								<div class="view-badge">👁️ <span id="view-home-${id}">${savedViews}</span></div>
+								<img src="${item.img}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://placehold.co/260x280?text=No+Image'">
+							</div>
+							<div class="product-info">
+								<div class="product-category">${item.category}</div>
+								<div class="product-title">${item.title}</div>
+								<div class="product-meta">
+									<div class="product-price">${formattedBank}</div>
+									<button class="btn-buy" onclick="openProductModal('${id}')">เพิ่มเติม</button>
+								</div>
+							</div>
+						</div>
+					`;
+				}
+
+				// 2. วาดลงหน้าคลังสินค้าทั้งหมด
+				if(allGrid) {
+					allGrid.innerHTML += `
+						<div class="product-card" data-member-id="${id}">
+							<div class="product-thumb">
+								${badgeHTML}
+								<div class="view-badge">👁️ ยอดวิว: <span id="view-all-${id}">${savedViews}</span></div>
+								<img src="${item.img}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://placehold.co/260x280?text=No+Image'">
+							</div>
+							<div class="product-info">
+								<div class="product-category">${item.category}</div>
+								<div class="product-title">${item.title}</div>
+								<div class="product-meta">
+									<div class="product-price">${formattedBank}</div>
+									<button class="btn-buy" onclick="openProductModal('${id}')">คลิกดูข้อมูล</button>
+								</div>
+							</div>
+						</div>
+					`;
+				}
+			});
+		}
 
 		function searchMember() {
 			const input = document.getElementById('memberSearchInput').value.trim().toUpperCase();
@@ -1214,7 +1258,7 @@
 			window.scrollTo(0, 0);
 		}
 
-		// 👁️ ฟังก์ชันระบบอัปเดตเลขยอดวิวในหน้าเว็บหลัก
+		// ฟังก์ชันระบบอัปเดตเลขยอดวิวในหน้าเว็บหลัก
 		function updateMainPageViews(id, value) {
 			const homeView = document.getElementById(`view-home-${id}`);
 			if(homeView) homeView.innerText = value;
@@ -1223,48 +1267,39 @@
 			if(allView) allView.innerText = value;
 		}
 
-		// 🔔 [แก้ไขใหม่] ฟังก์ชันเปิดหน้าต่างป๊อปอัปพร้อมเพิ่มยอดวิวและดึงคอมเมนต์
+		// ฟังก์ชันเปิดหน้าต่างป๊อปอัปพร้อมเพิ่มยอดวิวและดึงคอมเมนต์
 		function openProductModal(id) {
 			const product = productsData[id];
 			if(!product) return;
 
-			// 1. เพิ่มยอดวิวทันทีที่เปิดคลิกดู
 			let currentViews = parseInt(localStorage.getItem(`views_${id}`) || "0");
 			currentViews++;
 			localStorage.setItem(`views_${id}`, currentViews);
 			updateMainPageViews(id, currentViews);
 
-			// 2. ใส่ข้อมูลสินค้าชิ้นที่เลือกลงในช่องป๊อปอัป
 			document.getElementById('modalProductImg').src = product.img;
 			document.getElementById('modalCategory').innerText = product.category;
 			document.getElementById('modalTitle').innerText = product.title;
 			document.getElementById('modalMemberId').innerText = `รหัสระบบ: ${id}`;
-			document.getElementById('modalBank').innerText = product.bank;
+			document.getElementById('modalBank').innerText = product.bank.toUpperCase().includes("BANK") ? product.bank : "BANK " + product.bank;
 			document.getElementById('modalViewCount').innerText = currentViews;
 
-			// 3. ผูกคำสั่งปุ่มกดส่งคอมเมนต์ให้ทำงานกับ ID ชิ้นนี้
 			const submitBtn = document.getElementById('modalSubmitBtn');
 			submitBtn.onclick = function() { addModalComment(id); };
 
-			// 4. โหลดความเห็นของไอดีนี้มาโชว์
 			loadModalComments(id);
 
-			// 5. สั่งให้ป๊อปอัปเด้งแสดงผลขึ้นมา (พร้อมพื้นหลังเบลอ)
 			document.getElementById('productModal').classList.add('open');
-			document.body.style.overflow = 'hidden'; // ป้องกันไม่ให้หน้าเว็บเบื้องหลังเลื่อนได้ขณะเปิดหน้าต่าง
+			document.body.style.overflow = 'hidden';
 		}
 
-		// ✖️ ฟังก์ชันสำหรับปิดหน้าต่างป๊อปอัป
 		function closeProductModal(event) {
 			document.getElementById('productModal').classList.remove('open');
-			document.body.style.overflow = 'auto'; // คืนค่าให้หน้าเว็บหลักเลื่อนได้ปกติ
-			
-			// ล้างช่องป้อนข้อความที่ค้างไว้
+			document.body.style.overflow = 'auto'; 
 			document.getElementById('modalInputName').value = "";
 			document.getElementById('modalInputText').value = "";
 		}
 
-		// 💬 ฟังก์ชันดึงคอมเมนต์มาแสดงผลในป๊อปอัป
 		function loadModalComments(id) {
 			const listContainer = document.getElementById('modalCommentList');
 			listContainer.innerHTML = "";
@@ -1283,11 +1318,9 @@
 				listContainer.appendChild(div);
 			});
 			
-			// เลื่อนสกอร์บาร์ไปล่างสุดอัตโนมัติเพื่อแสดงคอมเมนต์ล่าสุด
 			listContainer.scrollTop = listContainer.scrollHeight;
 		}
 
-		// 📥 ฟังก์ชันบันทึกคอมเมนต์ใหม่ผ่านป๊อปอัป
 		function addModalComment(id) {
 			const nameInput = document.getElementById('modalInputName');
 			const textInput = document.getElementById('modalInputText');
@@ -1304,23 +1337,174 @@
 			comments.push({ name: name, text: text });
 			localStorage.setItem(`comments_${id}`, JSON.stringify(comments));
 
-			textInput.value = ""; // ล้างกล่องข้อความ
-			loadModalComments(id); // รีโหลดรายชื่อคอมเมนต์ในป๊อปอัปใหม่ทันที
+			textInput.value = ""; 
+			loadModalComments(id); 
 		}
 
 		function escapeHtml(str) {
 			return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 		}
 
-		// เริ่มระบบดึงยอดวิวจากความจำ LocalStorage มาป้อนที่การ์ดตอนเปิดหน้าเว็บครั้งแรก
+		/* ⚙️ ฟังก์ชันควบคุมระบบแอดมินและการตรวจสอบรหัสผ่าน (Admin Control System & Password) */
+		function openAdminModal() {
+			// [แก้ไขความปลอดภัย] ตรวจสอบรหัสผ่านแอดมินก่อนเข้าสู่ระบบ
+			const password = prompt("🔒 กรุณากรอกรหัสผ่านแอดมินเพื่อเข้าสู่ระบบ:");
+			if (password === null) return; // กดยกเลิก
+			if (password !== "1148") {
+				alert("❌ รหัสผ่านไม่ถูกต้อง! คุณไม่มีสิทธิ์เข้าถึงระบจัดการร้านค้าแอดมิน");
+				return;
+			}
+
+			renderAdminShopList();
+			document.getElementById('adminModal').classList.add('open');
+			document.body.style.overflow = 'hidden';
+		}
+
+		function closeAdminModal(event) {
+			if(!event || event.target.id === 'adminModal' || event.target.className === 'btn-close-modal') {
+				document.getElementById('adminModal').classList.remove('open');
+				document.body.style.overflow = 'auto';
+				cancelAdminEdit();
+			}
+		}
+
+		// ➕ [เพิ่มใหม่] ฟังก์ชันสำหรับบันทึกการเพิ่มร้านค้าใหม่
+		function addNewShop() {
+			const idInput = document.getElementById('adminAddId');
+			const catInput = document.getElementById('adminAddCategory');
+			const bankInput = document.getElementById('adminAddBank');
+			const imgInput = document.getElementById('adminAddImg');
+
+			const id = idInput.value.trim().toUpperCase();
+			const category = catInput.value.trim();
+			const bank = bankInput.value.trim();
+			const img = imgInput.value.trim();
+
+			if(!id || !category || !bank || !img) {
+				alert("กรุณากรอกข้อมูลเพื่อเพิ่มร้านค้าใหม่ให้ครบถ้วนทุกช่องครับ!");
+				return;
+			}
+
+			// ตรวจสอบไม่ให้รหัสสมาชิกซ้ำกันในระบบ
+			if(productsData[id]) {
+				alert(`❌ รหัสสมาชิก "${id}" นี้มีอยู่ในระบบแล้ว! โปรดใช้รหัสอื่นหรือกดแก้ไขข้อมูลที่รายการด้านล่างแทน`);
+				return;
+			}
+
+			// บันทึกข้อมูลร้านค้าใหม่เข้าโครงสร้าง Object หลัก
+			productsData[id] = {
+				category: category,
+				title: `MEMBER ID ${id}`,
+				bank: bank.toUpperCase().includes("BANK") ? bank : "BANK " + bank,
+				img: img
+			};
+
+			// อัปเดตข้อมูลถาวรและสั่งโหลดหน้าเว็บใหม่
+			saveProductsToStorage();
+			renderFrontEndGrids();
+			renderAdminShopList();
+
+			// ล้างช่องฟอร์มหลังบันทึกเสร็จ
+			idInput.value = '';
+			catInput.value = '';
+			bankInput.value = '';
+			imgInput.value = '';
+
+			alert(`✨ เพิ่มร้านค้าสมาชิกใหม่รหัส ${id} สำเร็จเรียบร้อยแล้ว!`);
+		}
+
+		function renderAdminShopList() {
+			const listContainer = document.getElementById('adminShopList');
+			listContainer.innerHTML = "";
+
+			const keys = Object.keys(productsData);
+			if(keys.length === 0) {
+				listContainer.innerHTML = `<p style="color:#718096; text-align:center; padding: 20px 0;">❌ ไม่พบข้อมูลร้านค้าในระบบ</p>`;
+				return;
+			}
+
+			keys.forEach(id => {
+				const item = productsData[id];
+				const div = document.createElement('div');
+				div.className = 'admin-list-item';
+				div.innerHTML = `
+					<div>
+						<strong style="color:var(--primary-navy)">${id}</strong> - <span id="admin-list-name-${id}">${item.category}</span>
+					</div>
+					<div>
+						<button class="admin-btn-edit" onclick="startAdminEdit('${id}')">แก้ไข</button>
+						<button class="admin-btn-delete" onclick="deleteAdminShop('${id}')">ลบร้านค้า</button>
+					</div>
+				`;
+				listContainer.appendChild(div);
+			});
+		}
+
+		let currentEditingId = null;
+		function startAdminEdit(id) {
+			currentEditingId = id;
+			const item = productsData[id];
+			document.getElementById('adminEditingId').innerText = id;
+			document.getElementById('adminInputCategory').value = item.category;
+			document.getElementById('adminInputBank').value = item.bank;
+			document.getElementById('adminInputImg').value = item.img;
+			document.getElementById('adminEditForm').style.display = 'block';
+		}
+
+		function cancelAdminEdit() {
+			currentEditingId = null;
+			document.getElementById('adminEditForm').style.display = 'none';
+		}
+
+		function saveAdminEdit() {
+			if(!currentEditingId) return;
+			const id = currentEditingId;
+			const category = document.getElementById('adminInputCategory').value.trim();
+			const bank = document.getElementById('adminInputBank').value.trim();
+			const img = document.getElementById('adminInputImg').value.trim();
+
+			if(!category || !bank || !img) {
+				alert("กรุณากรอกข้อมูลให้ครบถ้วนก่อนบันทึก!");
+				return;
+			}
+
+			productsData[id].category = category;
+			productsData[id].bank = bank;
+			productsData[id].img = img;
+
+			// บันทึกและรีเรนเดอร์ข้อมูลใหม่
+			saveProductsToStorage();
+			renderFrontEndGrids();
+
+			alert(`บันทึกการแก้ไขรหัส ${id} สำเร็จ!`);
+			cancelAdminEdit();
+			renderAdminShopList();
+		}
+
+		function deleteAdminShop(id) {
+			if(confirm(`คุณแน่ใจหรือไม่ที่จะทำการ "ลบร้านค้า" รหัสสมาชิก ${id} ออกจากระบบถาวร?`)) {
+				// ลบข้อมูลออกจาก Object
+				delete productsData[id];
+
+				// บันทึกการเปลี่ยนแปลงและรีเฟรชหน้าเว็บ
+				saveProductsToStorage();
+				renderFrontEndGrids();
+
+				alert("ทำการลบข้อมูลร้านค้าและสมาชิกเรียบร้อยแล้ว!");
+				cancelAdminEdit();
+				renderAdminShopList();
+			}
+		}
+
+		// เริ่มระบบดึงข้อมูลจาก LocalStorage และยอดวิวมาโชว์เมื่อเว็บโหลดเสร็จสิ้น
 		window.onload = function() {
-			const productIds = ['OP-0001', 'OP-0002', 'OP-0007', 'OP-0009'];
-			productIds.forEach(id => {
+			renderFrontEndGrids();
+
+			Object.keys(productsData).forEach(id => {
 				let savedViews = localStorage.getItem(`views_${id}`) || "0";
 				updateMainPageViews(id, savedViews);
 			});
 		};
 	</script>
 </body>
-
 </html>
