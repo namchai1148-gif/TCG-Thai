@@ -1435,6 +1435,8 @@ async function fetchShopsFromSheet() {
   renderFrontEndGrids();
 }
 
+		setInterval(fetchShopsFromSheet, 10000); // ดึงข้อมูลใหม่ทุก 10 วินาที
+
 
 	</script>
 </body>
