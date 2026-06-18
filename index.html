@@ -743,9 +743,7 @@
 
 			<h1 class="welcome-headline">WELCOME TO TCG</h1>
 			
-			<p class="welcome-description">สมาคมเทรดการ์ดแห่งประเทศไทย  <p class="welcome-description">     	
-	เชื่อมโยงนักสะสม ผู้เล่น ร้านค้า และผู้จัดการแข่งขันทั่วประเทศเพื่อยกระดับมาตรฐานพัฒนาชุมชน และขับเคลื่อนประเทศไทยสู่เวทีเทรดการ์ดระดับโลก
-			</p>
+			<p class="welcome-description">สมาคมเทรดการ์ดแห่งประเทศไทย<br>เชื่อมโยงนักสะสม ผู้เล่น ร้านค้า และผู้จัดการแข่งขันทั่วประเทศเพื่อยกระดับมาตรฐานพัฒนาชุมชน และขับเคลื่อนประเทศไทยสู่เวทีเทรดการ์ดระดับโลก</p>
 
 			<div class="welcome-btn-group">
 				<button class="btn-welcome-primary" onclick="navigateTo('homePage')">Start ➔</button>
@@ -1416,29 +1414,59 @@
 				renderAdminShopList();
 			}
 		}
-		window.onload = function() {
+
+		// -------------------------------------------------------------
+		// 🔹 Google Sheets API Integration (อัปเดตการจัดการให้เสถียรขึ้น)
+		// -------------------------------------------------------------
+		const GOOGLE_SHEET_API = "https://script.google.com/macros/s/AKfycbxfvOgtqLnEwSFXx34AN3M5iOhqLjsb3VhPEl26EQBrbSNExiFip0Ctu7PFlEB23Gt-/exec";
+
+		async function fetchShopsFromSheet() {
+			try {
+				const response = await fetch(GOOGLE_SHEET_API);
+				if (!response.ok) throw new Error('Network response was not ok');
+				const data = await response.json();
+				
+				if (data && data.length > 0) {
+					productsData = {}; // รีเซ็ตข้อมูลเก่าเพื่อดึงจาก Sheet ล้วนๆ
+					data.forEach(item => {
+						// รองรับ key ที่อาจใช้ชื่อ member_id หรือ id 
+						const memberId = item.member_id || item.id; 
+						if(memberId) {
+							productsData[memberId] = {
+								category: item.category || 'ทั่วไป',
+								title: item.title || `MEMBER ID ${memberId}`,
+								bank: item.bank || '-',
+								img: item.img || '',
+								vipBadge: item.vipBadge || 'none',
+								customColor: item.customColor || ''
+							};
+						}
+					});
+					saveProductsToStorage();
+					renderFrontEndGrids();
+					console.log("🔄 ดึงข้อมูลจาก Google Sheets สำเร็จ");
+				}
+			} catch (error) {
+				console.error("❌ ไม่สามารถดึงข้อมูลจาก Google Sheet ได้ กำลังแสดงผลจากข้อมูลสำรอง:", error);
+				// หากโหลดไม่ติด ก็ยังให้แสดงข้อมูลเก่าที่มีในเครื่อง
+				renderFrontEndGrids(); 
+			}
+		}
+
+		// กำหนดสิ่งที่จะให้ทำงานตอนโหลดหน้าเว็บ
+		window.onload = async function() {
 			applyThemeSettings(); 
+			
+			// เรนเดอร์ข้อมูลเก่าก่อนเพื่อให้หน้าเว็บขึ้นมาเร็วๆ ไม่ว่างเปล่า
 			renderFrontEndGrids();
+			
+			// เริ่มดึงข้อมูลอัปเดตจาก Google Sheets (ลบ setInterval ออกแล้ว เพื่อกัน Quota เต็ม)
+			await fetchShopsFromSheet();
+			
+			// พาเข้าหน้าแรก
 			navigateTo('welcomePage');
-		};// แทนที่ URL ด้วย Web App URL ที่ได้จาก Google Apps Script
-const GOOGLE_SHEET_API = "https://script.google.com/macros/s/AKfycbxfvOgtqLnEwSFXx34AN3M5iOhqLjsb3VhPEl26EQBrbSNExiFip0Ctu7PFlEB23Gt-/exec";
-
-async function fetchShopsFromSheet() {
-  const response = await fetch(GOOGLE_SHEET_API);
-  const data = await response.json();
-  
-  // นำข้อมูลไปแสดงผลเหมือนเดิม
-  productsData = {};
-  data.forEach(item => {
-    productsData[item.member_id] = item;
-  });
-  renderFrontEndGrids();
-}
-
-		setInterval(fetchShopsFromSheet, 10000); // ดึงข้อมูลใหม่ทุก 10 วินาที
-
+		};
 
 	</script>
 </body>
 </html>
-
